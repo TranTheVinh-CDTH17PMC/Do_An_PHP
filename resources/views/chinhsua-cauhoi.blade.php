@@ -21,8 +21,17 @@
                                         <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Ten Linh Vuc" value="{{$cauHoi->phuong_an_c}}">
                                         <label for="phuong_an_d">Phương án D</label>
                                         <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Ten Linh Vuc" value="{{$cauHoi->phuong_an_d}}">
-                                       <label for="phuong_an_d">Đáp án</label>
-                                        <input type="text" class="form-control" id="dap_an" name="dap_an" placeholder="Ten Linh Vuc" value="{{$cauHoi->dap_an}}">                                      
+                                       <div class="form-group mb-3">
+                                                <label for="dap_an-select">Đáp án</label>
+                                                <select class="form-control" id="dap_an" name="dap_an" >
+                                                    <option>{{$cauHoi->dap_an}}</option>
+                                                    <option>A</option>
+                                                    <option>B</option>
+                                                    <option>C</option>
+                                                    <option>D</option>
+                                                   
+                                                </select>
+                                        </div>                                      
                                     </div>
                                 
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Lưu Câu Hỏi</button>

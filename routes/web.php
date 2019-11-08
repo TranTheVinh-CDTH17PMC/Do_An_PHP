@@ -18,6 +18,7 @@ Route::post('dang_nhap','QuanTriVienController@xulidangnhap')->name('xuli-dangnh
 Route::get('test','QuanTriVienController@layid');
 Route::get('dang_xuat','QuanTriVienController@dangXuat')->name('dang_xuat');
 
+
 Route::middleware('auth')->group(function(){
 	Route::get('/', function () {
     	return view('mater');
@@ -25,6 +26,8 @@ Route::middleware('auth')->group(function(){
 Route::prefix('ds_linhvuc')->group(function(){
 	Route::name('ds_linhvuc.')->group(function(){
 		Route::get( '/','LinhvucController@index')->name('danh-sach');
+
+		
 
 		Route::get( '/ds_linhvuc_delete','LinhvucController@restore_ds')->name('danh-sach-xoa');
 

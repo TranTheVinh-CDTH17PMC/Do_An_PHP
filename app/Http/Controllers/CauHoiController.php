@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\CauHoi;
+use App\LinhVuc;
 
 class CauHoiController extends Controller
 {
@@ -15,6 +16,7 @@ class CauHoiController extends Controller
      */
     public function index()
     {
+        $linhvuc = LinhVuc::all();
         $cauhoi=DB::table('cau_hoi')->whereNull('deleted_at')->get();
         return view('ds_cauhoi',compact('cauhoi'));
     }
@@ -30,7 +32,8 @@ class CauHoiController extends Controller
      */
     public function create()
     {
-        return view('them-moi-cau-hoi');
+        $linhvuc = LinhVuc::all();
+        return view('them-moi-cau-hoi',compact('linhvuc'));
     }
 
     /**
@@ -50,7 +53,8 @@ class CauHoiController extends Controller
         $cauhoi->phuong_an_d=$request->phuong_an_d;
         $cauhoi->dap_an=$request->dap_an;
         $cauhoi->save();
-        return redirect('ds_cauhoi/them-moi-cau-hoi')->with('success','Đăng kí thàng công');
+        $request->session()->flash('status', 'Thêm câu hỏi thành công!');
+        return redirect('ds_cauhoi');
     }
 
     /**

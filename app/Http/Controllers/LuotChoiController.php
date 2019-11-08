@@ -37,13 +37,21 @@ class LuotChoiController extends Controller
      */
     public function store(Request $request)
     {
-        $luotchoi=new LuotChoi;
-        $luotchoi->nguoi_choi_id=$request->nguoi_choi_id;
-        $luotchoi->so_cau=$request->so_cau;
-        $luotchoi->diem=$request->diem;
-        $luotchoi->ngay_gio=$request->ngay_gio;
-        $luotchoi->save();
-        return redirect('ds_cauhoi/them-moi-luot-choi')->with('success','Đăng kí thàng công');
+         if($request->nguoi_choi_id =="" || $request->so_cau == "" || $request->diem== "" ||  $request->ngay_gio=="")
+        {
+            return redirect('ds_luotchoi/them-moi-luot-choi')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $luotchoi=new LuotChoi;
+            $luotchoi->nguoi_choi_id=$request->nguoi_choi_id;
+            $luotchoi->so_cau=$request->so_cau;
+            $luotchoi->diem=$request->diem;
+            $luotchoi->ngay_gio=$request->ngay_gio;
+            $luotchoi->save();
+            return redirect('ds_cauhoi/them-moi-luot-choi')->with('success','Đăng kí thàng công');
+        }
+            
     }
 
     /**

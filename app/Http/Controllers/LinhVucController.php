@@ -48,10 +48,10 @@ class LinhVucController extends Controller
         }
         else
         {
-         $linhvuc=new LinhVuc;
-        $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
-        $linhvuc->save();
-        return redirect('ds_linhvuc/them-moi-linh-vuc')->with('success','Đăng kí thàng công');
+            $linhvuc=new LinhVuc;
+            $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
+            $linhvuc->save();
+            return redirect('ds_linhvuc/them-moi-linh-vuc')->with('success','Đăng kí thàng công');
         }
     }
 

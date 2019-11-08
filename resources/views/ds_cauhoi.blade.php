@@ -1,5 +1,8 @@
  @extends('mater')
  @section('main-content')
+@if (session('status'))
+        <javascript>alert('Xin chào các bạn')</javascript>
+@endif
  <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -48,12 +51,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
-                                                    </form>
-
-
-                                                    
-                                           
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>         
                                         </tr>
                                          @endforeach
                                     </tbody>
