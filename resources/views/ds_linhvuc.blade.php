@@ -32,7 +32,7 @@
                                                
 
                                                     <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
-                                                    <i class="btn btn-success waves-effect waves-light" >
+                                                    <i class="btn btn-success waves-effect waves-light" style=" margin-bottom: 5px;" >
                                                         Update
                                                     </i></a> 
                                                     
