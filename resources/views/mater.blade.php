@@ -371,12 +371,12 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"> <i class="la la-briefcase"></i>Người Chơi <div class="arrow-down"></div></a>
+                                <a href="{{ route('ds_nguoichoi.danh-sach') }}"> <i class="la la-briefcase"></i>Người Chơi <div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="ui-buttons.html">Lượt chơi</a>
+                                                <a href="{{ route('ds_luotchoi.danh-sach') }}">Lượt chơi</a>
                                             </li>
                                             <li>
                                                 <a href="ui-cards.html">Chi tiết lượt chơi</a>
