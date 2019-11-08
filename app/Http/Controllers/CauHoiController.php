@@ -15,10 +15,14 @@ class CauHoiController extends Controller
      */
     public function index()
     {
-        $cauhoi=DB::table('cau_hoi')->get();
+        $cauhoi=DB::table('cau_hoi')->whereNull('deleted_at')->get();
         return view('ds_cauhoi',compact('cauhoi'));
     }
-
+    public function restore_ds()
+        {
+             $cauhoi=DB::table('cau_hoi')->whereNotNull('deleted_at')->get();
+            return view('ds_cauhoi_delete',compact('cauhoi'));
+        }
     /**
      * Show the form for creating a new resource.
      *
@@ -100,8 +104,17 @@ class CauHoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   public function destroy($id)
     {
-        //
+       CauHoi::where('id', $id)->delete();
+       return redirect('ds_cauhoi')->with('success','Xóa thàng công');
+    }
+
+    public function restore1($id)
+    {
+       CauHoi::withTrashed()
+        ->where('id', $id)
+        ->restore();
+       return redirect('ds_cauhoi')->with('success','restore thàng công');
     }
 }

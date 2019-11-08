@@ -7,7 +7,7 @@
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách lĩnh vực</h4>
                                 <a href="{{ route('ds_linhvuc.ds_linhvuc.xl-them-moi-linh-vuc') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
-                                  <a href="{{ route('ds_linhvuc.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
+                                <a href="{{ route('ds_linhvuc.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
@@ -30,9 +30,9 @@
                                                
                                                      
                                                
-
+                                                    
                                                     <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
-                                                    <i class="btn btn-success waves-effect waves-light" >
+                                                    <i class="btn btn-danger waves-effect waves-light" >
                                                         Update
                                                     </i></a> 
                                                     
@@ -40,7 +40,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-danger waves-effect waves-light">Delete</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
                                                     </form>
                                                
                                             </td>

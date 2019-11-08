@@ -7,7 +7,6 @@
                                 <h4 class="header-title">Danh sách câu hỏi</h4>
                                 <a href="{{ route('ds_cauhoi.ds_cauhoi.xl-them-moi-cau-hoi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm câu hỏi</button></a>
                                 
-                                <a href="{{ route('ds_cauhoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
@@ -39,20 +38,13 @@
                                             <td>{{ $cauhoi->phuong_an_d }}</td>
                                             <td>{{ $cauhoi->dap_an }}</td>
                                             <td>
-                                                <a href="{{ route('ds_cauhoi.xulisua',$cauhoi->id)}}">
-                                                    <i class="btn btn-danger waves-effect waves-light" >
-                                                        Update
-                                                    </i></a> 
-                                                    
-                                                    <form method="POST" action="{{route('ds_cauhoi.xoa',$cauhoi->id)}}">
+                                                <form method="POST" action="{{route('ds_cauhoi.luulai',$cauhoi->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
-                                                       
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
+                                                        
+                                                        <button type="submit" class="mdi mdi-close">Restore</button>
                                                     </form>
-
-
-                                                    
+                                            </td>
                                            
                                         </tr>
                                          @endforeach

@@ -10,10 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('mater');
-})->name('trangchu');
 
+
+Route::get('dang_nhap','QuanTriVienController@dangnhap')->name('dang_nhap');
+Route::get('/','QuanTriVienController@getadmin')->name('getadmin');
+Route::post('dang_nhap','QuanTriVienController@xulidangnhap')->name('xuli-dangnhap');
+Route::get('test','QuanTriVienController@layid');
+Route::get('dang_xuat','QuanTriVienController@dangXuat')->name('dang_xuat');
+
+Route::middleware('auth')->group(function(){
+	Route::get('/', function () {
+    	return view('mater');
+	})->name('trangchu');
 Route::prefix('ds_linhvuc')->group(function(){
 	Route::name('ds_linhvuc.')->group(function(){
 		Route::get( '/','LinhvucController@index')->name('danh-sach');
@@ -39,13 +47,19 @@ Route::prefix('ds_cauhoi')->group(function(){
 	Route::name('ds_cauhoi.')->group(function(){
 		Route::get( '/','CauHoiController@index')->name('danh-sach');
 
+		Route::get( '/ds_linhvuc_delete','CauHoiController@restore_ds')->name('danh-sach-xoa');
+
 		Route::get('/them-moi-cau-hoi','CauHoiController@create')->name('ds_cauhoi.them-moi-cau-hoi');
 		
 		Route::post('/them-moi-cau-hoi','CauHoiController@store')->name('ds_cauhoi.xl-them-moi-cau-hoi');
 
 		Route::get('/chinhsua-cauhoi/{id}','CauHoiController@edit')->name('ds_cauhoi.cs-them-moi-cau-hoi');
 
-		Route::post('/chinhsua-cauhoi/{id}', 'CauHoiController@update')->name('xulisua'); 
+		Route::post('/chinhsua-cauhoi/{id}', 'CauHoiController@update')->name('xulisua');
+
+		Route::delete('/xoa/{id}','CauHoiController@destroy')->name('xoa');
+
+		Route::delete('ds_cauhoi_delete/luulai/{id}','CauHoiController@restore1')->name('luulai');
 
 	});
 	
@@ -80,5 +94,7 @@ Route::prefix('ds_nguoichoi')->group(function(){
 	});
 	
 });
+});
+
 
 

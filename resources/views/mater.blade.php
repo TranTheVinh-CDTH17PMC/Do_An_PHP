@@ -149,21 +149,28 @@
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src=" {{ asset ( 'assets/images/users/user-1.jpg ') }}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
-                                    Marcia J. <i class="mdi mdi-chevron-down"></i> 
+                                       @if (session('ten_dang_nhap'))
+                                       {{ session('ten_dang_nhap') }}
+                                       @endif
+                                     <i class="mdi mdi-chevron-down"></i> 
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
                                     <h5 class="m-0">
-                                        Welcome !
+                                      
                                     </h5>
                                 </div>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
-                                    <span>My Account</span>
+                                    
+                             
+                             
+                                <span></span>
+                              
                                 </a>
 
                                 <!-- item-->
@@ -181,7 +188,7 @@
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{route('dang_xuat')}}" class="dropdown-item notify-item">
                                     <i class="fe-log-out"></i>
                                     <span>Logout</span>
                                 </a>
@@ -371,12 +378,12 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"> <i class="la la-briefcase"></i>Người Chơi <div class="arrow-down"></div></a>
+                                <a href="{{ route('ds_nguoichoi.danh-sach') }}"> <i class="la la-briefcase"></i>Người Chơi <div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="ui-buttons.html">Lượt chơi</a>
+                                                <a href="{{ route('ds_luotchoi.danh-sach') }}">Lượt chơi</a>
                                             </li>
                                             <li>
                                                 <a href="ui-cards.html">Chi tiết lượt chơi</a>
