@@ -1,6 +1,8 @@
  @extends('mater')
  @section('main-content')
-
+@if (session('status'))
+        <script>alert('Thêm câu hỏi thành công!')</script>
+@endif
  <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -32,10 +34,7 @@
                                                
                                                     
                                                     <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
-                                                    <i class="btn btn-danger waves-effect waves-light" >
-                                                        Update
-                                                    </i></a> 
-                                                    
+                                                    <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
                                                     <form method="POST" action="{{route('ds_linhvuc.xoa',$linhvuc->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
