@@ -51,7 +51,8 @@ class LinhVucController extends Controller
             $linhvuc=new LinhVuc;
             $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
             $linhvuc->save();
-            return redirect('ds_linhvuc/them-moi-linh-vuc')->with('success','Đăng kí thàng công');
+            $request->session()->flash('status', 'Thêm câu hỏi thành công!');
+            return redirect('ds_linhvuc')->with('success','Đăng kí thàng công');
         }
     }
 
