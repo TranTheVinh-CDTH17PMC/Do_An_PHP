@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\ChiTietLuotChoi;
+use App\LuotChoi;
+use App\CauHoi;
 
 
 class ChiTietLuotChoiController extends Controller
@@ -16,8 +18,21 @@ class ChiTietLuotChoiController extends Controller
      */
     public function index()
     {
-        $chitietluotchoi=DB::table('chi_tiet_luot_choi')->get();
+        $chitietluotchoi=DB::table('chi_tiet_luot_choi')->whereNull('deleted_at')->get();
         return view('ds_chitietluotchoi',compact('chitietluotchoi'));
+    }
+
+    public function restore_ds()
+    {
+        $chitietluotchoi=DB::table('chi_tiet_luot_choi')->whereNotNull('deleted_at')->get();
+        return view('ds_chitietluotchoi_delete',compact('chitietluotchoi'));
+    }
+    public function khoi_phuc($id)
+    {
+       ChiTietLuotChoi::withTrashed()
+        ->where('id',$id)
+        ->restore();
+       return redirect('ds_chitietluotchoi')->with('success','restore thàng công');
     }
 
     /**
@@ -72,7 +87,9 @@ class ChiTietLuotChoiController extends Controller
     public function edit($id)
     {
         $chitietluotchoi=ChiTietLuotChoi::findOrFail($id);
-        return view('chinhsua-chitietluotchoi',compact('chitietluotchoi'));
+        $cauhoi=CauHoi::all();
+        $luotchoi=LuotChoi::all();
+        return view('chinhsua-chitietluotchoi',compact('chitietluotchoi','cauhoi','luotchoi'));
     }
 
     /**
@@ -102,7 +119,10 @@ class ChiTietLuotChoiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {  
+       ChiTietLuotChoi::where('id',$id)->delete();
+       return redirect('ds_chitietluotchoi')->with('success','Xóa thàng công'); 
     }
+
+
 }

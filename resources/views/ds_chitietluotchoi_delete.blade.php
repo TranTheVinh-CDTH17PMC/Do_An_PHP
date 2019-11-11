@@ -5,9 +5,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Danh sách chi tiết lượt chơi</h4>
-                                <a href="{{ route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
-                                <a href="{{ route('ds_chitietluotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
+                                <h4 class="header-title">Danh sách chi tiết lượt chơi đã xóa tạm</h4>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
@@ -37,8 +35,12 @@
                                                      
                                                
                                                     
-                                                    <a href="{{route('ds_chitietluotchoi.ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi',$chitietluotchoi->id)}}">
-                                                    <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
+                                                    <form method="POST" action="{{route('ds_chitietluotchoi.khoi-phuc',$chitietluotchoi->id)}}">
+                                                        {{ method_field('DELETE') }}
+                                                        {{csrf_field()}}
+                                                       
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Khôi phục</button>
+                                                    </form>
                                                     
                                                     <form method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
@@ -46,7 +48,8 @@
                                                        
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
                                                     </form>
-                                               
+                                                     
+
                                             </td>
                                            
                                         </tr>
