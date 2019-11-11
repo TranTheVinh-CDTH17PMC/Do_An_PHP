@@ -110,7 +110,6 @@ class CauHoiController extends Controller
      */
    public function destroy($id)
     {  
-        
        CauHoi::where('id', $id)->delete();
        return redirect('ds_cauhoi')->with('success','Xóa thàng công');
     }
