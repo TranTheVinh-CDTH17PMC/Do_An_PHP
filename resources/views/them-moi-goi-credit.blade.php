@@ -4,18 +4,24 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="mb-3 header-title">Thêm Lĩnh Vực</h4>
+                                <h4 class="mb-3 header-title">Thêm Gói Credit</h4>
 
                                 <form action="{{ route('ds_goicredit.ds_goicredit.xl-them-moi-goi-credit') }}" method="POST">
                                    
                                 	@csrf
                                     <div class="form-group">
                                         <label for="ten_goi">Tên lĩnh vực </label>
-                                        <input type="text" class="form-control" id="ten_goi" name="ten_goi" placeholder="Ten Linh Vuc">
+                                        <input type="text" class="form-control" id="ten_goi" name="ten_goi" placeholder="Tên lĩnh vực">
+
+                                        <label for="credit">Credit </label>
+                                        <input type="text" class="form-control" id="credit" name="credit" placeholder="Credit">
+
+                                        <label for="so_tien">Số tiền </label>
+                                        <input type="text" class="form-control" id="so_tien" name="so_tien" placeholder="Số tiền">
                                        
                                     </div>
                                   
-                                    <button name="submit"  type="submit" class="btn btn-primary waves-effect waves-light">Thêm lĩnh vực</button>
+                                    <button name="submit"  type="submit" class="btn btn-primary waves-effect waves-light">Thêm gói Credit</button>
                                 </form>
                                 @if(session('error'))
                                 <div style="display: flex;">

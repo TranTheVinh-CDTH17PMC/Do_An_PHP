@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách gói credit</h4>
                                 <a href="{{ route('ds_goicredit.ds_goicredit.xl-them-moi-goi-credit') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
-                                <a href="{{ route('ds_linhvuc.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
+                                <a href=""><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
@@ -37,10 +37,10 @@
                                                      
                                                
                                                     
-                                                    <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
+                                                    <a href=" ">
                                                     <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
                                                     
-                                                    <form method="POST" action="{{route('ds_linhvuc.xoa',$linhvuc->id)}}">
+                                                    <form method="POST" action=" ">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
