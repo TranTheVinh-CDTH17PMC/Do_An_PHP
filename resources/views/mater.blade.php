@@ -400,7 +400,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#">
+                                <a href="{{ route('ds_goicredit.danh-sach') }}">
                                     <i class="la la-diamond"></i>Gói Credit <div class="arrow-down"></div></a>
                                 
                             </li>
