@@ -94,10 +94,31 @@ Route::prefix('ds_nguoichoi')->group(function(){
 
 		Route::post('/chinhsua-nguoichoi/{id}', 'NguoiChoiController@update')->name('xulisua'); 
 
+
+	});
+	
+});
+
+
+
+Route::prefix('ds_chitietluotchoi')->group(function(){
+	Route::name('ds_chitietluotchoi.')->group(function(){
+		Route::get( '/','ChiTietLuotChoiController@index')->name('danh-sach');
+
+		Route::get('/them-moi-chi-tiet-luot-choi','ChiTietLuotChoiController@create')->name('ds_chitietluotchoi.them-moi-chi-tiet-choi');
+		
+		Route::post('/them-moi-chi-tiet-luot-choi','ChiTietLuotChoiController@store')->name('ds_chitietluotchoi.xl-them-moi-chi-tiet-luot-choi');
+
+		Route::get('/chinhsua-chitietluotchoi/{id}','ChiTietLuotChoiController@edit')->name('ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi');
+
+		Route::post('/chinhsua-chitietluotchoi/{id}', 'ChiTietLuotChoiController@update')->name('xulisua'); 
+
+
 	});
 	
 });
 });
+
 
 
 
