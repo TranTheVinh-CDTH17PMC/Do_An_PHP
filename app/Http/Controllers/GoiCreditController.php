@@ -36,19 +36,22 @@ class GoiCreditController extends Controller
      */
     public function store(Request $request)
     {
-       /* if($request->ten_goi=="")
+        if($request->ten_goi==""|| $request->credit=="" || $request->so_tien=="" )
         {
             return redirect('ds_goicredit/them-moi-goi-credit')->with('error','Vui lòng không để trống');
         }
         else
-        {*/
+        {
+       
             $goiCredits = new GoiCredit;
             $goiCredits->ten_goi=$request->ten_goi;
+            $goiCredits->credit=$request->credit;
+            $goiCredits->so_tien=$request->so_tien;
             $goiCredits->save();
-            return "Thêm thành công";
-            /*$request->session()->flash('status', 'Thêm gói credit thành công!');
-            return redirect('ds_goicredit')->with('success','Đăng kí thàng công');
-        }*/
+            $request->session()->flash('status', 'Thêm gói credit thành công!');
+            return redirect('ds_goicredit');
+        }
+            
     }
 
     /**

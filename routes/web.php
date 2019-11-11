@@ -123,7 +123,7 @@ Route::prefix('ds_goicredit')->group(function(){
 
 		Route::get('/them-moi-goi-credit','GoiCreditController@create')->name('ds_goicredit.them-moi-goi-credit');
 		
-		Route::get('/them-moi-goi-credit','GoiCreditController@store')->name('ds_goicredit.xl-them-moi-goi-credit');
+		Route::post('/them-moi-goi-credit','GoiCreditController@store')->name('ds_goicredit.xl-them-moi-goi-credit');
 
 	});
 	
