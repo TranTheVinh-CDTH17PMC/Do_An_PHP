@@ -159,9 +159,9 @@ Route::prefix('ds_cauhinhapp')->group(function(){
 		Route::post('/them-moi-cau-hinh-app','CauHinhAppController@store')->name('ds_cauhinhapp.xl-them-moi-cau-hinh-app');
 
 
-		Route::get('/chinhsua-cauhinnhapp/{id}','CauHinhAppController@edit')->name('ds_cauhinhapp.cs-them-moi-cau-hinh-app');
+		Route::get('/chinhsua-cauhinhapp/{id}','CauHinhAppController@edit')->name('ds_cauhinhapp.cs-them-moi-cau-hinh-app');
 
-		Route::post('/chinhsua-cauhinnhapp/{id}', 'CauHinhAppController@update')->name('xulisua');
+		Route::post('/chinhsua-cauhinhapp/{id}', 'CauHinhAppController@update')->name('xulisua');
 
 
 		Route::get( '/ds_cauhinhapp_delete','CauHinhAppController@restore_ds')->name('danh-sach-xoa');
@@ -169,6 +169,30 @@ Route::prefix('ds_cauhinhapp')->group(function(){
 		Route::delete('/xoa/{id}','CauHinhAppController@destroy')->name('xoa');
 
 		Route::delete('ds_cauhinhapp_delete/luulai/{id}','CauHinhAppController@restore1')->name('luulai');
+
+
+	});
+	
+});
+Route::prefix('ds_cauhinhdiem')->group(function(){
+	Route::name('ds_cauhinhdiem.')->group(function(){
+		Route::get( '/','CauHinhDiemController@index')->name('danh-sach');
+
+		Route::get('/them-moi-cau-hinh-diem','CauHinhDiemController@create')->name('ds_cauhinhdiem.them-moi-cau-hinh-diem');
+		
+		Route::post('/them-moi-cau-hinh-diem','CauHinhDiemController@store')->name('ds_cauhinhdiem.xl-them-moi-cau-hinh-diem');
+
+
+		Route::get('/chinhsua-cauhinhdiem/{id}','CauHinhDiemController@edit')->name('ds_cauhinhdiem.cs-them-moi-cau-hinh-diem');
+
+		Route::post('/chinhsua-cauhinhdiem/{id}', 'CauHinhDiemController@update')->name('xulisua');
+
+
+		Route::get( '/ds_cauhinhdiem_delete','CauHinhDiemController@restore_ds')->name('danh-sach-xoa');
+
+		Route::delete('/xoa/{id}','CauHinhDiemController@destroy')->name('xoa');
+
+		Route::delete('ds_cauhinhdiem_delete/luulai/{id}','CauHinhDiemController@restore1')->name('luulai');
 
 
 	});

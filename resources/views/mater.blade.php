@@ -414,7 +414,7 @@
                                                 <a href="{{ route('ds_cauhinhapp.danh-sach') }}">Cấu hình App</a>
                                             </li>
                                             <li>
-                                                <a href="pages-login.html">Cấu hình điểm câu hỏi</a>
+                                                <a href="{{ route('ds_cauhinhdiem.danh-sach') }}">Cấu hình điểm câu hỏi</a>
                                             </li>
                                             <li>
                                                 <a href="pages-register.html">Cấu hình trợ giúp</a>
