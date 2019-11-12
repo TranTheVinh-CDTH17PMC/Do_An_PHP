@@ -34,6 +34,11 @@ class ChiTietLuotChoiController extends Controller
         ->restore();
        return redirect('ds_chitietluotchoi')->with('success','restore thàng công');
     }
+    public function xoa_luon($id)
+    {
+        ChiTietLuotChoi::where('id',$id)->forceDelete();
+         return view('ds_chitietluotchoi_delete')->with('success','Yêu cầu đã được giải quyết');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +60,15 @@ class ChiTietLuotChoiController extends Controller
      */
     public function store(Request $request)
     {
-     
+         if($request->luot_choi_id=="" ||$request->cau_hoi_id==""||$request->phuong_an==""||$request->diem=="")
+        {
+            return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('error','Lỗi');
+        }
+        elseif ( is_int($request->diem)==false) {
+           return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('notint','Lỗi');
+        }
+        else
+        {
             $chitietluotchoi=new ChiTietLuotChoi;
             $chitietluotchoi->luot_choi_id=$request->luot_choi_id;
             $chitietluotchoi->cau_hoi_id=$request->cau_hoi_id;
@@ -63,7 +76,9 @@ class ChiTietLuotChoiController extends Controller
             $chitietluotchoi->diem=$request->diem;
             $chitietluotchoi->save();
             $request->session()->flash('status', 'Thêm câu hỏi thành công!');
-            return redirect('ds_linhvuc')->with('success','Đăng kí thàng công');
+            return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('success','Đăng kí thàng công');
+        }
+         
        
     }
 

@@ -1,13 +1,16 @@
 @extends('mater')
-@section('main-content')
+  @if (session('success'))
+    <script>alert('Yêu cầu đã được giải quyết')</script>
+ @endif
+
 
  <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Danh sách chi tiết lượt chơi đã xóa tạm</h4>
+                                  <h4 class="header-title" style="font-size: 3em;text-align: center;">Danh sách chi tiết lượt chơi đã xóa tạm thời</h4>
 
-                                <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 2em;text-align: center;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -39,16 +42,18 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Khôi phục</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background-color: tomato;"> <i class="fas fa-reply"></i> </button>
                                                     </form>
                                                     
-                                                    <form method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
+                                                    <form method="POST" action="{{route('ds_chitietluotchoi.xoaluon',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background: #715679">
+                                                            <i class="fas fa-gavel"></i>
+                                                        </button>
                                                     </form>
-                                                     
+                                                   
 
                                             </td>
                                            

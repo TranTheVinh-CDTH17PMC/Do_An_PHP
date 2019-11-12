@@ -1,4 +1,4 @@
-chinhsua-chitietluotchoi.blade.php @extends('mater')
+@extends('mater')
  @section('main-content')
 <div class="row">
                     <div class="col-lg-6">

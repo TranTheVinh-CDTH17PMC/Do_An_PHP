@@ -1,4 +1,5 @@
  @extends('mater')
+
  @section('main-content')
  <div class="row">
                     <div class="col-lg-6">
@@ -24,8 +25,30 @@
                                         <input type="text" class="form-control" id="diem" name="diem" placeholder="Ten Linh Vuc">
                                      
                                     </div>
-                                
+                                     @if (session('success'))
+                                         
+                                      @endif
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Thêm chi tiết lượt chơi</button>
+                                      @if(session('error'))
+                                        <div style="display: flex;">
+                                            @php
+                                              echo"<p style='color: #ff3600;font-style:bold; margin-top: 2em; font-size:15px; '>Vui lòng không bỏ trống</p>";
+                                            @endphp
+                                              <i style='color: #ff3600;font-style:bold; margin-top: 25px; font-size:20px; padding-left: 0.2em;' class="mdi mdi-emoticon-dead"></i>
+                                        </div>
+                                                                   
+                                                                   
+                                     @endif
+                                       @if(session('notint'))
+                                        <div style="display: flex;">
+                                            @php
+                                              echo"<p style='color: #ff3600;font-style:bold; margin-top: 2em; font-size:15px; '>Điểm phải số nguyên!</p>";
+                                            @endphp
+                                              <i style='color: #ff3600;font-style:bold; margin-top: 25px; font-size:20px; padding-left: 0.2em;' class="mdi mdi-emoticon-dead"></i>
+                                        </div>
+                                                                   
+                                                                   
+                                     @endif
                                 </form>
 
                             </div> <!-- end card-body-->

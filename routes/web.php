@@ -41,6 +41,8 @@ Route::prefix('ds_linhvuc')->group(function(){
 
 		Route::delete('/xoa/{id}','LinhVucController@destroy')->name('xoa');
 
+		
+
 		Route::delete('ds_linhvuc_delete/luulai/{id}','LinhVucController@restore1')->name('luulai');
 	});
 	
@@ -115,9 +117,13 @@ Route::prefix('ds_chitietluotchoi')->group(function(){
 
 
 		Route::delete('/ds_chitietluotchoi/xoa/{id}','ChiTietLuotChoiController@destroy')->name('xoa');
+
+		Route::delete('/ds_linhvuc_delete/{id}','ChiTietLuotChoiController@xoa_luon')->name('xoaluon');
+
+
         Route::get( '/ds_chitietluotchoi_delete','ChiTietLuotChoiController@restore_ds')->name('danh-sach-xoa');
 		Route::delete('ds_chitietluotchoi_delete/khoiphuc/{id}','ChiTietLuotChoiController@khoi_phuc')->name('khoi-phuc');
-
+        
 
 	});
 	
