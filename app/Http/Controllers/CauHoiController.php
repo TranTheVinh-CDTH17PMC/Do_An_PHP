@@ -109,7 +109,7 @@ class CauHoiController extends Controller
      * @return \Illuminate\Http\Response
      */
    public function destroy($id)
-    {
+    {  
        CauHoi::where('id', $id)->delete();
        return redirect('ds_cauhoi')->with('success','Xóa thàng công');
     }

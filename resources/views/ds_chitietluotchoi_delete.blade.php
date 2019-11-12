@@ -1,13 +1,14 @@
 @extends('mater')
-@section('main-content')
+  @if (session('success'))
+    <script>alert('Yêu cầu đã được giải quyết')</script>
+ @endif
+ @section('main-content')
 
  <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title" style="font-size: 3em;text-align: center;">Danh sách chi tiết lượt chơi</h4>
-                                <a href="{{ route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button" style="background: #082756;">Thêm mới</button></a>
-                                <a href="{{ route('ds_chitietluotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button" style="background: #1e3832;margin-left: 80%;"> <i class="icon-trash" style="font-size: 3em;"></i></button></a>
+                                  <h4 class="header-title" style="font-size: 3em;text-align: center;">Danh sách chi tiết lượt chơi đã xóa tạm thời</h4>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 2em;text-align: center;">
                                     <thead>
@@ -37,29 +38,32 @@
                                                      
                                                
                                                     
-                                                    <a href="{{route('ds_chitietluotchoi.ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi',$chitietluotchoi->id)}}" >
-                                                        <i class="btn btn-danger waves-effect waves-light" style="background-color: tomato;" >
-                                                            <i class="mdi mdi-grease-pencil"></i>
-                                                        </i>
-                                                    </a> 
-                                                    
-                                                    <form onsubmit=" return (xacnhan())" method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
+                                                    <form method="POST" action="{{route('ds_chitietluotchoi.khoi-phuc',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" id="submit_xoa" class="btn btn-primary waves-effect waves-light" style="background: #082756;" >
-                                                            <i class="mdi mdi-trash-can-outline"></i>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background-color: tomato;"> <i class="fas fa-reply"></i> </button>
+                                                    </form>
+                                                    
+                                                    
+                                                    <form onsubmit="return(xacnhan())" method="POST" action="{{route('ds_chitietluotchoi.xoaluon',$chitietluotchoi->id)}}">
+                                                        {{ method_field('DELETE') }}
+                                                        {{csrf_field()}}
+                                                       
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background: #715679">
+                                                            <i class="fas fa-gavel"></i>
                                                         </button>
                                                     </form>
-                                                    <script >
+                                                        <script >
                                                         function xacnhan(){
-                                                            if(confirm("Bạn đã sẵn sàng vứt chưa?")==false){
+                                                            if(confirm("Bạn sẽ không thể khôi phục nó?")==false){
                                                                return false;
                                                             }
                                                             return true;
 
                                                         }
                                                     </script>
+
                                             </td>
                                            
                                         </tr>
