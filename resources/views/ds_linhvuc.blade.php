@@ -34,7 +34,7 @@
                                                
                                                     
                                                     <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
-                                                    <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
+                                                    <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a> 
                                                     
 
                                                     <script language="javascript">
@@ -45,8 +45,8 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');">Delete</button>
-                                                    </form>
+                                                       <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-close"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+                                                                                                            </form>
                                                
                                             </td>
                                            
