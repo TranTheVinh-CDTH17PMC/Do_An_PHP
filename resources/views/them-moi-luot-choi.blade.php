@@ -10,14 +10,20 @@
                                    
                                 	@csrf
                                     <div class="form-group">
-                                        <label for="nguoi_choi_id">ID Người Chơi</label>
-                                        <input type="text" class="form-control" id="nguoi_choi_id" name="nguoi_choi_id" placeholder="Ten Linh Vuc">
+                                       <div class="form-group mb-3">
+                                                <label for="nguoi_choi_id">Người Chơi ID</label>
+                                                <select class="form-control" id="nguoi_choi_id" name="nguoi_choi_id">
+                                                    @foreach($nguoichoi as $nguoichoi)
+                                                        <option>{{$nguoichoi->id}}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
                                         <label for="so_cau">Số Câu</label>
                                         <input type="text" class="form-control" id="so_cau" name="so_cau" placeholder="Ten Linh Vuc">
                                         <label for="diem">Điểm</label>
                                         <input type="text" class="form-control" id="diem" name="diem" placeholder="Ten Linh Vuc">
                                         <label for="ngay_gio">Ngày Giờ</label>
-                                        <input type="datetime" class="form-control" id="ngay_gio" name="ngay_gio" placeholder="Ten Linh Vuc">
+                                        <input type="datetime-local" class="form-control" id="ngay_gio" name="ngay_gio" placeholder="Ten Linh Vuc">
                                     </div>
                                 
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Thêm Lượt Chơi</button>

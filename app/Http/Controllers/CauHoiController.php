@@ -44,17 +44,24 @@ class CauHoiController extends Controller
      */
     public function store(Request $request)
     {
-        $cauhoi=new CauHoi;
-        $cauhoi->noi_dung=$request->noi_dung;
-        $cauhoi->linh_vuc_id=$request->linh_vuc_id;
-        $cauhoi->phuong_an_a=$request->phuong_an_a;
-        $cauhoi->phuong_an_b=$request->phuong_an_b;
-        $cauhoi->phuong_an_c=$request->phuong_an_c;
-        $cauhoi->phuong_an_d=$request->phuong_an_d;
-        $cauhoi->dap_an=$request->dap_an;
-        $cauhoi->save();
-        $request->session()->flash('status', 'Thêm câu hỏi thành công!');
-        return redirect('ds_cauhoi');
+         if($request->noi_dung=="" || $cauhoi->phuong_an_a=="" ||  $cauhoi->phuong_an_b=="" ||$cauhoi->phuong_an_c=="" ||  $cauhoi->phuong_an_d=="" || $cauhoi->dap_an=="")
+        {
+            return redirect('ds_cauhoi/them-moi-cau-hoi')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $cauhoi=new CauHoi;
+            $cauhoi->noi_dung=$request->noi_dung;
+            $cauhoi->linh_vuc_id=$request->linh_vuc_id;
+            $cauhoi->phuong_an_a=$request->phuong_an_a;
+            $cauhoi->phuong_an_b=$request->phuong_an_b;
+            $cauhoi->phuong_an_c=$request->phuong_an_c;
+            $cauhoi->phuong_an_d=$request->phuong_an_d;
+            $cauhoi->dap_an=$request->dap_an;
+            $cauhoi->save();
+            $request->session()->flash('status', 'Thêm câu hỏi thành công!');
+            return redirect('ds_cauhoi');
+        }
     }
 
     /**

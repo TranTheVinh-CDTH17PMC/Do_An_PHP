@@ -23,7 +23,7 @@
                                             <th>Phương án C</th>
                                             <th>Phương án D</th>
                                             <th>Phương án</th>
-                                            <th>Sua | Xoa</th>
+                                            <th>Sửa | Xóa</th>
                                             
                                         </tr>
                                     </thead>
@@ -42,16 +42,20 @@
                                             <td>{{ $cauhoi->phuong_an_d }}</td>
                                             <td>{{ $cauhoi->dap_an }}</td>
                                             <td>
-                                                <a href="{{ route('ds_cauhoi.xulisua',$cauhoi->id)}}">
-                                                    <i class="btn btn-danger waves-effect waves-light" >
-                                                        Update
-                                                    </i></a> 
+                                                 <a href="{{ route('ds_cauhoi.xulisua',$cauhoi->id)}}">
+                                                    <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a>
                                                     
-                                                    <form method="POST" action="{{route('ds_cauhoi.xoa',$cauhoi->id)}}">
+                                                    <script language="javascript">
+                                                    function check_register()
+                                                    // kiem tra cac textbox
+                                                     </script>
+                                                    <form method="POST" action="{{route('ds_cauhoi.xoa',$cauhoi->id)}}"  onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>         
+                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-close"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+
+                                                   
                                         </tr>
                                          @endforeach
                                     </tbody>
