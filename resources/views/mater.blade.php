@@ -411,7 +411,7 @@
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="pages-starter.html">Cấu hình App</a>
+                                                <a href="{{ route('ds_cauhinhapp.danh-sach') }}">Cấu hình App</a>
                                             </li>
                                             <li>
                                                 <a href="pages-login.html">Cấu hình điểm câu hỏi</a>
