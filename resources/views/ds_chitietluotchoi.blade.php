@@ -40,13 +40,21 @@
                                                     <a href="{{route('ds_chitietluotchoi.ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi',$chitietluotchoi->id)}}">
                                                     <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
                                                     
-                                                    <form method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
+                                                    <form onsubmit=" return (xacnhan())" method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
+                                                        <button type="submit" id="submit_xoa" class="btn btn-primary waves-effect waves-light" >Delete</button>
                                                     </form>
-                                               
+                                                    <script >
+                                                        function xacnhan(){
+                                                            if(confirm("Bạn đã sẵn sàng vứt chưa?")==false){
+                                                               return false;
+                                                            }
+                                                            return true;
+
+                                                        }
+                                                    </script>
                                             </td>
                                            
                                         </tr>
