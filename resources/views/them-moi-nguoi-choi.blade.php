@@ -17,7 +17,7 @@
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" placeholder="Ten Linh Vuc">
                                         <label for="hinh_dai_dien">Hình đại diện</label>
-                                        <input type="text" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" placeholder="Ten Linh Vuc">
+                                        <input type="file" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" placeholder="Ten Linh Vuc">
                                          <label for="diem_cao_nhat">Điểm cao nhất</label>
                                         <input type="text" class="form-control" id="diem_cao_nhat" name="diem_cao_nhat" placeholder="Ten Linh Vuc">
                                          <label for="credit">Credit</label>

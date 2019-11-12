@@ -43,7 +43,7 @@ class NguoiChoiController extends Controller
      */
     public function store(Request $request)
     {
-        if( $request->ten_dang_nhap =="" ||  $request->mat_khau == "" ||  $request->email== "" ||  $request->hinh_dai_dien=="" || $request->diem_cao_nhat=="" || $request->credit=="")
+        if( $request->ten_dang_nhap =="" ||  $request->mat_khau == "" ||  $request->email== "" || $request->diem_cao_nhat=="" || $request->credit=="")
         {
             return redirect('ds_nguoichoi/them-moi-nguoi-choi')->with('error','Vui lòng không để trống');
         }
@@ -53,10 +53,22 @@ class NguoiChoiController extends Controller
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
-        $nguoichoi->hinh_dai_dien=$request->hinh_dai_dien;
+
+        if($request->hasfile('hinh_dai_dien')){
+            $file=$request->file('hinh_dai_dien');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('img/',$filename);
+            $nguoichoi->hinh_dai_dien=$filename;
+        }
+        else{
+            return $request;
+            $highlights->hinh_dai_dien='';
+        }
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
+        $request->session()->flash('themmoi', 'Thêm câu hỏi thành công!');
         return redirect('ds_nguoichoi/them-moi-nguoi-choi')->with('success','Đăng kí thàng công');
         }
     }
@@ -102,6 +114,7 @@ class NguoiChoiController extends Controller
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
+        $request->session()->flash('chinhsua', 'Thêm câu hỏi thành công!');
         return redirect('ds_nguoichoi/them-moi-nguoi-choi')->with('success','Đăng kí thàng công');
     }
 

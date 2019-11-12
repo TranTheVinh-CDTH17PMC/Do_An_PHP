@@ -51,7 +51,7 @@ class LinhVucController extends Controller
             $linhvuc=new LinhVuc;
             $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
             $linhvuc->save();
-            $request->session()->flash('status', 'Thêm câu hỏi thành công!');
+            $request->session()->flash('themmoi', 'Thêm câu hỏi thành công!');
             return redirect('ds_linhvuc')->with('success','Đăng kí thàng công');
         }
     }
@@ -92,6 +92,7 @@ class LinhVucController extends Controller
         $linhvuc=LinhVuc::find($id);
         $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
         $linhvuc->save();
+        $request->session()->flash('chinhsua', 'Thêm câu hỏi thành công!');
         return redirect('ds_linhvuc');
     }
 

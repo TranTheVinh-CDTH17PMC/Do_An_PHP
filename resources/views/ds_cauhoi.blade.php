@@ -1,7 +1,10 @@
  @extends('mater')
  @section('main-content')
-@if (session('status'))
-        <script>alert('$status')</script>
+@if (session('themmoi'))
+        <script>alert('Thêm câu hỏi thành công!')</script>
+@endif
+@if (session('chinhsua'))
+        <script>alert('Sửa câu hỏi thành công!')</script>
 @endif
  <div class="row">
                     <div class="col-12">

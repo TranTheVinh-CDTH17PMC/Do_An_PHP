@@ -57,6 +57,7 @@ class LuotChoiController extends Controller
             $luotchoi->diem=$request->diem;
             $luotchoi->ngay_gio=$request->ngay_gio;
             $luotchoi->save();
+             $request->session()->flash('themmoi', 'Thêm câu hỏi thành công!');
             return redirect('ds_luotchoi/them-moi-luot-choi')->with('success','Đăng kí thàng công');
         }
             
@@ -107,6 +108,7 @@ class LuotChoiController extends Controller
             $luotchoi->diem=$request->diem;
             $luotchoi->ngay_gio=$request->ngay_gio;
             $luotchoi->save();
+            $request->session()->flash('chinhsua', 'Thêm câu hỏi thành công!');
             return redirect('ds_luotchoi')->with('success','Đăng kí thàng công');
         }
            

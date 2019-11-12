@@ -1,6 +1,11 @@
  @extends('mater')
  @section('main-content')
-
+@if (session('themmoi'))
+        <script>alert('Thêm lĩnh vực thành công!')</script>
+@endif
+@if (session('chinhsua'))
+        <script>alert('Sửa lĩnh vực thành công!')</script>
+@endif
  <div class="row">
                     <div class="col-12">
                         <div class="card">
