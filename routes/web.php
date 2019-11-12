@@ -41,8 +41,6 @@ Route::prefix('ds_linhvuc')->group(function(){
 
 		Route::delete('/xoa/{id}','LinhVucController@destroy')->name('xoa');
 
-		
-
 		Route::delete('ds_linhvuc_delete/luulai/{id}','LinhVucController@restore1')->name('luulai');
 	});
 	
@@ -140,6 +138,14 @@ Route::prefix('ds_goicredit')->group(function(){
 		Route::get('/chinhsua-goicredit/{id}','GoiCreditController@edit')->name('ds_goicredit.cs-them-moi-goi-credit');
 
 		Route::post('/chinhsua-goicredit/{id}', 'GoiCreditController@update')->name('xulisua');
+
+
+		Route::get( '/ds_goicredit_delete','GoiCreditController@restore_ds')->name('danh-sach-xoa');
+
+		Route::delete('/xoa/{id}','GoiCreditController@destroy')->name('xoa');
+
+		Route::delete('ds_goicredit_delete/luulai/{id}','GoiCreditController@restore1')->name('luulai');
+
 
 	});
 	

@@ -14,10 +14,14 @@ class GoiCreditController extends Controller
      */
     public function index()
     {
-        $goiCredits = DB::table('goi_credit')->get();
+        $goiCredits = DB::table('goi_credit')->whereNull('deleted_at')->get();
         return view('ds_goicredit',compact('goiCredits'));
     }
-
+     public function restore_ds()
+    {
+         $goiCredits=DB::table('goi_credit')->whereNotNull('deleted_at')->get();
+        return view('ds_goicredit_delete',compact('goiCredits'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -103,6 +107,14 @@ class GoiCreditController extends Controller
      */
     public function destroy($id)
     {
-        //
+        GoiCredit::where('id', $id)->delete();
+       return redirect('ds_goicredit')->with('success','Xóa thàng công');
+    }
+    public function restore1($id)
+    {
+       GoiCredit::withTrashed()
+        ->where('id', $id)
+        ->restore();
+       return redirect('ds_goicredit/ds_goicredit_delete')->with('success','restore thàng công');
     }
 }
