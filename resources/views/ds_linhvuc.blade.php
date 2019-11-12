@@ -48,7 +48,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                       <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-close"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" onclick="return confirm('Bạncó chắc là muốn xóa dữ liệu ?');"><i class="mdi mdi-close" ></i></button>
                                                                                                             </form>
                                                
                                             </td>
