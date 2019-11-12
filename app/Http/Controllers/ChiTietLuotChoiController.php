@@ -32,12 +32,13 @@ class ChiTietLuotChoiController extends Controller
        ChiTietLuotChoi::withTrashed()
         ->where('id',$id)
         ->restore();
-       return redirect('ds_chitietluotchoi')->with('success','restore thàng công');
+       return redirect()->route('ds_chitietluotchoi.danh-sach-xoa')->with('success','Yêu cầu đã dược giải quyết');
     }
     public function xoa_luon($id)
     {
         ChiTietLuotChoi::where('id',$id)->forceDelete();
-         return view('ds_chitietluotchoi_delete')->with('success','Yêu cầu đã được giải quyết');
+        return redirect()->route('ds_chitietluotchoi.danh-sach-xoa')->with('success','Yêu cầu đã dược giải quyết');
+
     }
 
     /**

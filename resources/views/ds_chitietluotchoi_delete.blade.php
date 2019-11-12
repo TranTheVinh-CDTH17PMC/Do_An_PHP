@@ -2,7 +2,7 @@
   @if (session('success'))
     <script>alert('Yêu cầu đã được giải quyết')</script>
  @endif
-
+ @section('main-content')
 
  <div class="row">
                     <div class="col-12">
@@ -45,7 +45,8 @@
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light" style="background-color: tomato;"> <i class="fas fa-reply"></i> </button>
                                                     </form>
                                                     
-                                                    <form method="POST" action="{{route('ds_chitietluotchoi.xoaluon',$chitietluotchoi->id)}}">
+                                                    
+                                                    <form onsubmit="return(xacnhan())" method="POST" action="{{route('ds_chitietluotchoi.xoaluon',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
@@ -53,7 +54,15 @@
                                                             <i class="fas fa-gavel"></i>
                                                         </button>
                                                     </form>
-                                                   
+                                                        <script >
+                                                        function xacnhan(){
+                                                            if(confirm("Bạn sẽ không thể khôi phục nó?")==false){
+                                                               return false;
+                                                            }
+                                                            return true;
+
+                                                        }
+                                                    </script>
 
                                             </td>
                                            
