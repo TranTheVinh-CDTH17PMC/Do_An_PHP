@@ -208,6 +208,30 @@ Route::prefix('ds_cauhinhdiem')->group(function(){
 	});
 	
 });
+Route::prefix('ds_cauhinhtrogiup')->group(function(){
+	Route::name('ds_cauhinhtrogiup.')->group(function(){
+		Route::get( '/','CauHinhTroGiupController@index')->name('danh-sach');
+
+		Route::get('/them-moi-cau-hinh-tro-giup','CauHinhTroGiupController@create')->name('ds_cauhinhtrogiup.them-moi-cau-hinh-tro-giup');
+		
+		Route::post('/them-moi-cau-hinh-tro-giup','CauHinhTroGiupController@store')->name('ds_cauhinhtrogiup.xl-them-moi-cau-hinh-tro-giup');
+
+
+		Route::get('/chinhsua-cauhinhtrogiup/{id}','CauHinhTroGiupController@edit')->name('ds_cauhinhtrogiup.cs-them-moi-cau-hinh-tro-giup');
+
+		Route::post('/chinhsua-cauhinhtrogiup/{id}', 'CauHinhTroGiupController@update')->name('xulisua');
+
+
+		Route::get( '/ds_cauhinhtrogiup_delete','CauHinhTroGiupController@restore_ds')->name('danh-sach-xoa');
+
+		Route::delete('/xoa/{id}','CauHinhTroGiupController@destroy')->name('xoa');
+
+		Route::delete('ds_cauhinhtrogiup_delete/luulai/{id}','CauHinhTroGiupController@restore1')->name('luulai');
+
+
+	});
+	
+});
 });
 
 

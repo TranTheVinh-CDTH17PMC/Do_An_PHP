@@ -149,9 +149,6 @@
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src=" {{ asset ( 'assets/images/users/user-1.jpg ') }}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
-                                       @if (session('ten_dang_nhap'))
-                                       {{ session('ten_dang_nhap') }}
-                                       @endif
                                      <i class="mdi mdi-chevron-down"></i> 
                                 </span>
                             </a>
@@ -166,10 +163,10 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
-                                    
                              
-                             
-                                <span></span>
+                                <span>  @if (session('ten_dang_nhap'))
+                                       {{ session('ten_dang_nhap') }}
+                                       @endif</span>
                               
                                 </a>
 
@@ -417,7 +414,7 @@
                                                 <a href="{{ route('ds_cauhinhdiem.danh-sach') }}">Cấu hình điểm câu hỏi</a>
                                             </li>
                                             <li>
-                                                <a href="pages-register.html">Cấu hình trợ giúp</a>
+                                                <a href="{{ route('ds_cauhinhtrogiup.danh-sach') }}">Cấu hình trợ giúp</a>
                                             </li>
                                           
                                         </ul>
