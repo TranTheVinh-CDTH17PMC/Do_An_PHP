@@ -73,7 +73,9 @@ class GoiCreditController extends Controller
      */
     public function edit($id)
     {
-        //
+        $goiCredits=GoiCredit::findOrFail($id);
+        $pageName='goi_credit-update';
+        return view('chinhsua-goicredit',compact('goiCredits','pageName'));
     }
 
     /**
@@ -85,7 +87,12 @@ class GoiCreditController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $goiCredits=GoiCredit::find($id);
+        $goiCredits->ten_goi=$request->ten_goi;
+        $goiCredits->credit=$request->credit;
+        $goiCredits->so_tien=$request->so_tien;
+        $goiCredits->save();
+        return redirect('ds_goicredit')->with('success','Đăng kí thàng công');
     }
 
     /**

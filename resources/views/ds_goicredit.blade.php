@@ -36,15 +36,15 @@
                                                
                                                      
                                                
-                                                    
-                                                    <a href=" ">
-                                                    <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
+                                            
+                                                    <a href="{{ route('ds_goicredit.ds_goicredit.cs-them-moi-goi-credit',$goiCredits->id) }}">
+                                                      <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a> 
                                                     
                                                     <form method="POST" action=" ">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
+                                                        <button class="btn btn-danger waves-effect waves-light" type="button"><i class="mdi mdi-close"></i></button>
                                                     </form>
                                                
                                             </td>

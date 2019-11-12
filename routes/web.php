@@ -125,6 +125,11 @@ Route::prefix('ds_goicredit')->group(function(){
 		
 		Route::post('/them-moi-goi-credit','GoiCreditController@store')->name('ds_goicredit.xl-them-moi-goi-credit');
 
+
+		Route::get('/chinhsua-goicredit/{id}','GoiCreditController@edit')->name('ds_goicredit.cs-them-moi-goi-credit');
+
+		Route::post('/chinhsua-goicredit/{id}', 'GoiCreditController@update')->name('xulisua');
+
 	});
 	
 });

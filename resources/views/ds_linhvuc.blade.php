@@ -36,11 +36,16 @@
                                                     <a href="{{ route('ds_linhvuc.ds_linhvuc.xulisua',$linhvuc->id)}}">
                                                     <i class="btn btn-danger waves-effect waves-light" >Update</i></a> 
                                                     
-                                                    <form method="POST" action="{{route('ds_linhvuc.xoa',$linhvuc->id)}}">
+
+                                                    <script language="javascript">
+                                                    function check_register()
+                                                    // kiem tra cac textbox
+                                                     </script>
+                                                    <form method="POST" action="{{route('ds_linhvuc.xoa',$linhvuc->id)}}"  onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Delete</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');">Delete</button>
                                                     </form>
                                                
                                             </td>

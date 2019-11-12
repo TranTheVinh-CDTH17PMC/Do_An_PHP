@@ -24,11 +24,15 @@
                                             <td>{{ $linhvuc->id }}</td>
                                             <td>{{ $linhvuc->ten_linh_vuc }}</td>
                                             <td>    
-                                                    <form method="POST" action="{{route('ds_linhvuc.luulai',$linhvuc->id)}}">
+                                                <script language="javascript">
+                                                function check_register()
+                                                // kiem tra cac textbox
+                                                </script>
+                                                    <form method="POST" action="{{route('ds_linhvuc.luulai',$linhvuc->id)}}" onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                         
-                                                        <button type="submit" class="mdi mdi-close">Restore</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="return confirm('Bạn có muốn Restore không ?');">Restore</button>
                                                     </form>
                                                
                                             </td>
