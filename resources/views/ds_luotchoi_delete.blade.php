@@ -1,13 +1,11 @@
  @extends('mater')
  @section('main-content')
+
  <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Danh sách lượt chơi</h4>
-                                <a href="{{ route('ds_luotchoi.ds_luotchoi.xl-them-moi-luot-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm lượt chơi</button></a>
-                                 <a href="{{ route('ds_luotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
-
+                                <h4 class="header-title">Danh sách lĩnh vực</h4>
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
@@ -15,14 +13,13 @@
                                             <th>ID Người Chơi</th>
                                             <th>Số Câu</th>
                                             <th>Điểm</th>
-                                            <th>Ngày giờ</th>
-                                            <th>Sửa | Xóa</th>
+                                            <th>Ngày giờ</th>  
                                         </tr>
                                     </thead>
                                 
                                 
                                     <tbody>
-                                         @foreach($luotchoi as $luotchoi)
+                                        @foreach($luotchoi as $luotchoi)
                                         <tr>
                                            
                                             <td>{{ $luotchoi->id }}</td>
@@ -30,20 +27,18 @@
                                             <td>{{ $luotchoi->so_cau }}</td>
                                             <td>{{ $luotchoi->diem }}</td>
                                             <td>{{ $luotchoi->ngay_gio }}</td>
-                                           
                                             <td>
-                                                <a href="{{ route('ds_luotchoi.xulisua',$luotchoi->id)}}">
-                                                    <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a>
-                                                    
-                                                    <script language="javascript">
-                                                    function check_register()
-                                                    // kiem tra cac textbox
-                                                     </script>
-                                                    <form method="POST" action="{{route('ds_luotchoi.xoa',$luotchoi->id)}}"  onsubmit="return check_register();">
+                                                <script language="javascript">
+                                                function check_register()
+                                                // kiem tra cac textbox
+                                                </script>
+                                                    <form method="POST" action="{{route('ds_luotchoi.luulai',$luotchoi->id)}}" onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
-                                                       
-                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-close"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+                                                        
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="return confirm('Bạn có muốn Restore không ?');">Restore</button>
+                                                    </form>
+                                               
                                             </td>
                                            
                                         </tr>

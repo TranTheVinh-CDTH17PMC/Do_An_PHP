@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LuotChoi;
+use App\NguoiChoi;
+use App\Http\Request\LuotChoiRequest;
 
 class LuotChoiController extends Controller
 {
@@ -15,10 +17,15 @@ class LuotChoiController extends Controller
      */
     public function index()
     {
-        $luotchoi=DB::table('luot_choi')->get();
+        $nguoichoi = NguoiChoi::all();
+        $luotchoi=DB::table('luot_choi')->whereNull('deleted_at')->get();
         return view('ds_luotchoi',compact('luotchoi'));
     }
-
+    public function restore_ds()
+    {
+         $luotchoi=DB::table('luot_choi')->whereNotNull('deleted_at')->get();
+        return view('ds_luotchoi_delete',compact('luotchoi'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +33,8 @@ class LuotChoiController extends Controller
      */
     public function create()
     {
-         return view('them-moi-luot-choi');
+        $nguoichoi = NguoiChoi::all();
+         return view('them-moi-luot-choi',compact('nguoichoi'));
     }
 
     /**
@@ -37,7 +45,7 @@ class LuotChoiController extends Controller
      */
     public function store(Request $request)
     {
-         if($request->nguoi_choi_id =="" || $request->so_cau == "" || $request->diem== "" ||  $request->ngay_gio=="")
+        if($request->nguoi_choi_id =="" || $request->so_cau == "" || $request->diem== "" ||  $request->ngay_gio=="")
         {
             return redirect('ds_luotchoi/them-moi-luot-choi')->with('error','Vui lòng không để trống');
         }
@@ -49,7 +57,7 @@ class LuotChoiController extends Controller
             $luotchoi->diem=$request->diem;
             $luotchoi->ngay_gio=$request->ngay_gio;
             $luotchoi->save();
-            return redirect('ds_cauhoi/them-moi-luot-choi')->with('success','Đăng kí thàng công');
+            return redirect('ds_luotchoi/them-moi-luot-choi')->with('success','Đăng kí thàng công');
         }
             
     }
@@ -87,13 +95,21 @@ class LuotChoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $luotchoi=LuotChoi::find($id);
-        $luotchoi->nguoi_choi_id=$request->nguoi_choi_id;
-        $luotchoi->so_cau=$request->so_cau;
-        $luotchoi->diem=$request->diem;
-        $luotchoi->ngay_gio=$request->ngay_gio;
-        $luotchoi->save();
-        return redirect('ds_luotchoi')->with('success','Đăng kí thàng công');
+        if($request->nguoi_choi_id =="" || $request->so_cau == "" || $request->diem== "" ||  $request->ngay_gio=="")
+        {
+            return redirect('ds_luotchoi')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $luotchoi=new LuotChoi;
+            $luotchoi->nguoi_choi_id=$request->nguoi_choi_id;
+            $luotchoi->so_cau=$request->so_cau;
+            $luotchoi->diem=$request->diem;
+            $luotchoi->ngay_gio=$request->ngay_gio;
+            $luotchoi->save();
+            return redirect('ds_luotchoi')->with('success','Đăng kí thàng công');
+        }
+           
     }
 
     /**
@@ -104,6 +120,14 @@ class LuotChoiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        LuotChoi::where('id', $id)->delete();
+       return redirect('ds_luotchoi')->with('success','Xóa thàng công');
+    }
+     public function restore1($id)
+    {
+       LuotChoi::withTrashed()
+        ->where('id', $id)
+        ->restore();
+       return redirect('ds_luotchoi/ds_luotchoi_delete')->with('success','restore thàng công');
     }
 }
