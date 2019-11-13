@@ -5,7 +5,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title" style="font-size: 3em;text-align: center;">Lịch sử mua credit</h4>
+                                <h4 class="header-title" >Lịch sử mua credit</h4>
                                 
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 1em;text-align: center;">
