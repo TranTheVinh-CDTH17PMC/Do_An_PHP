@@ -84,8 +84,8 @@ class CauHoiController extends Controller
     public function edit($id)
     {
         $cauHoi=CauHoi::findOrFail($id);
-        $pageName='CauHoi-update';
-        return view('chinhsua-cauhoi',compact('cauHoi','pageName'));
+        $linhvuc = LinhVuc::all();
+        return view('chinhsua-cauhoi',compact('cauHoi','linhvuc'));
     }
 
     /**

@@ -14,7 +14,9 @@
                                                 <label for="nguoi_choi_id">Người Chơi ID</label>
                                                 <select class="form-control" id="nguoi_choi_id" name="nguoi_choi_id">
                                                     @foreach($nguoichoi as $nguoichoi)
-                                                        <option>{{$nguoichoi->id}}</option>
+                                                        <option value="{{$nguoichoi->id}}">
+                                                          {{$nguoichoi->ten_dang_nhap}}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                         </div>

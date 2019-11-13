@@ -10,8 +10,16 @@
                                    
                                 	@csrf
                                     <div class="form-group">
-                                        <label for="nguoi_choi_id">ID Người Chơi</label>
-                                        <input type="text" class="form-control" id="nguoi_choi_id" name="nguoi_choi_id" value="{{$luotchoi->nguoi_choi_id}}">
+                                        <div class="form-group mb-3">
+                                                <label for="nguoi_choi_id">Người Chơi ID</label>
+                                                <select class="form-control" id="nguoi_choi_id" name="nguoi_choi_id">
+                                                    @foreach($nguoichoi as $nguoichoi)
+                                                        <option value="{{$nguoichoi->id}}">
+                                                          {{$nguoichoi->ten_dang_nhap}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
                                         <label for="so_cau">Số Câu</label>
                                         <input type="text" class="form-control" id="so_cau" name="so_cau" value="{{$luotchoi->so_cau}}">
                                         <label for="diem">Điểm</label>

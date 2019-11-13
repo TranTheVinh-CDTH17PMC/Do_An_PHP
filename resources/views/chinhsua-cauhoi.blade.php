@@ -11,8 +11,16 @@
 
                                         <label for="noidung">Nội Dung </label>
                                         <input type="text" class="form-control" id="noidung" name="noidung" placeholder="Ten Linh Vuc" value="{{$cauHoi->noi_dung}}">
-                                        <label for="linh_vuc_id">ID Lĩnh Vực</label>
-                                        <input type="text" class="form-control" id="linh_vuc_id" name="linh_vuc_id" placeholder="Ten Linh Vuc" value="{{$cauHoi->linh_vuc_id}}">
+                                         <div class="form-group mb-3">
+                                                <label for="linh_vuc_id">Lĩnh Vực ID</label>
+                                                <select class="form-control" id="linh_vuc_id" name="linh_vuc_id">
+                                                    @foreach($linhvuc as $linhvuc)
+                                                        <option value="{{$linhvuc->id}}">
+                                                            {{$linhvuc->ten_linh_vuc}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
                                         <label for="phuong_an_a">Phương án A </label>
                                         <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Ten Linh Vuc" value="{{$cauHoi->phuong_an_a}}">
                                         <label for="phuong_an_b">Phương án B </label>

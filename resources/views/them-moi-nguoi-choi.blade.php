@@ -6,7 +6,7 @@
                             <div class="card-body">
                                 <h4 class="mb-3 header-title">Thêm Người Chơi</h4>
 
-                                <form action="{{ route('ds_nguoichoi.ds_nguoichoi.xl-them-moi-nguoi-choi') }}" method="POST">
+                                <form action="{{ route('ds_nguoichoi.ds_nguoichoi.xl-them-moi-nguoi-choi') }}" method="POST" enctype="multipart/form-data">
                                    
                                 	@csrf
                                     <div class="form-group">

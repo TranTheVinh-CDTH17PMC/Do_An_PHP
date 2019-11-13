@@ -34,7 +34,7 @@ class LuotChoiController extends Controller
     public function create()
     {
         $nguoichoi = NguoiChoi::all();
-         return view('them-moi-luot-choi',compact('nguoichoi'));
+        return view('them-moi-luot-choi',compact('nguoichoi'));
     }
 
     /**
@@ -83,8 +83,8 @@ class LuotChoiController extends Controller
     public function edit($id)
     {
         $luotchoi=LuotChoi::findOrFail($id);
-        $pageName='luotchoi-update';
-        return view('chinhsua-luotchoi',compact('luotchoi','pageName'));
+        $nguoichoi = NguoiChoi::all();
+        return view('chinhsua-luotchoi',compact('luotchoi','nguoichoi'));
     }
 
     /**
