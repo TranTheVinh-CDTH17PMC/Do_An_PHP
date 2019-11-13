@@ -16,9 +16,13 @@
                                                 <label for="linh_vuc_id">Lĩnh Vực ID</label>
                                                 <select class="form-control" id="linh_vuc_id" name="linh_vuc_id">
                                                     @foreach($linhvuc as $linhvuc)
+
                                                         <option value="{{$linhvuc->id}}">
                                                             {{$linhvuc->ten_linh_vuc}}
                                                         </option>
+
+                                                    <option value="{{$linhvuc->id}}">{{$linhvuc->ten_linh_vuc}}</option>
+
                                                     @endforeach
                                                 </select>
                                         </div>

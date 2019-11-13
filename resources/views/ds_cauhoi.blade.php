@@ -25,7 +25,7 @@
                                             <th>Phương án B</th>
                                             <th>Phương án C</th>
                                             <th>Phương án D</th>
-                                            <th>Phương án</th>
+                                            <th>Đáp án</th>
                                             <th>Sửa | Xóa</th>
                                             
                                         </tr>
@@ -57,6 +57,7 @@
                                                         {{csrf_field()}}
                                                        
                                                     <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-close"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+                                                </form>
 
                                                    
                                         </tr>

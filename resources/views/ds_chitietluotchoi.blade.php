@@ -5,11 +5,11 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title" style="font-size: 3em;text-align: center;">Danh sách chi tiết lượt chơi</h4>
-                                <a href="{{ route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button" style="background: #082756;">Thêm mới</button></a>
-                                <a href="{{ route('ds_chitietluotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button" style="background: #1e3832;margin-left: 80%;"> <i class="icon-trash" style="font-size: 3em;"></i></button></a>
+                                <h4 class="header-title" >Danh sách chi tiết lượt chơi</h4>
+                                <a href="{{ route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button" >Thêm mới</button></a>
+                                <a href="{{ route('ds_chitietluotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button" > Thùng rác</button></a>
 
-                                <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 2em;text-align: center;">
+                                <table id="basic-datatable" class="table dt-responsive nowrap" >
                                     <thead>
                                         <tr>
                                             <th>ID</th>

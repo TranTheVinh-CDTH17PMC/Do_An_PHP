@@ -386,7 +386,7 @@
                                                 <a href="{{ route('ds_chitietluotchoi.danh-sach') }}">Chi tiết lượt chơi</a>
                                             </li>
                                             <li>
-                                                <a href="ui-tabs-accordions.html">Lịch sử mua Credit</a>
+                                                <a href="{{ route('ds_lichsumuacredit.danh-sach') }}">Lịch sử mua Credit</a>
                                             </li>
                                             
                                         </ul>
@@ -399,6 +399,7 @@
                             <li class="has-submenu">
                                 <a href="{{ route('ds_goicredit.danh-sach') }}">
                                     <i class="la la-diamond"></i>Gói Credit <div class="arrow-down"></div></a>
+                          
                                 
                             </li>
 
