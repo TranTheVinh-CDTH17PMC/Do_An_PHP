@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\CauHoi;
 use App\LinhVuc;
+use Illuminate\Database\Seeder;
 
 class CauHoiController extends Controller
 {
