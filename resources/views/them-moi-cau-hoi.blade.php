@@ -19,8 +19,6 @@
                                                             {{$linhvuc->ten_linh_vuc}}
                                                         </option>
 
-                                                    <option value="{{$linhvuc->id}}">{{$linhvuc->ten_linh_vuc}}</option>
-
                                                     @endforeach
                                                 </select>
                                         </div>
