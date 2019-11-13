@@ -13,19 +13,35 @@
                                     <div class="form-group">
                                   
 
-                                        <label for="phuong_an_a">Lượt chơi id</label>
-                                        <input type="text" class="form-control" id="luot_choi_id" name="luot_choi_id" placeholder="Ten Linh Vuc">
+                                        <div class="form-group mb-3">
+                                                <label for="luot_choi_id">Lượt Chơi ID</label>
+                                                <select class="form-control" id="nguoi_choi_id" name="luot_choi_id">
+                                                    @foreach($luotchoi as $luotchoi)
+                                                        <option>{{$luotchoi->id}}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
 
-                                        <label for="phuong_an_b">Câu hỏi id </label>
-                                        <input type="text" class="form-control" id="cau_hoi_id" name="cau_hoi_id" placeholder="Ten Linh Vuc">
+
+                                         <div class="form-group mb-3">
+                                                <label for="cau_hoi_id">Câu hỏi ID</label>
+                                                <select class="form-control" id="cau_hoi_id" name="cau_hoi_id">
+                                                    @foreach($cauhoi as $cauhoi)
+                                                        <option>{{$cauhoi->id}}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
 
                                         <label for="phuong_an_c">Phương án  </label>
                                         <input type="text" class="form-control" id="phuong_an" name="phuong_an" placeholder="Ten Linh Vuc">
                                         <label for="phuong_an_d">Điểm</label>
-                                        <input type="text" class="form-control" id="diem" name="diem" placeholder="Ten Linh Vuc">
+                                        <input type="text" class="form-control" id="diem" name="diem" placeholder="Điểm">
                                      
                                     </div>
                                      @if (session('success'))
+                                         <script >
+                                            alert('Thêm thành công');
+                                         </script>
                                          
                                       @endif
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Thêm chi tiết lượt chơi</button>
