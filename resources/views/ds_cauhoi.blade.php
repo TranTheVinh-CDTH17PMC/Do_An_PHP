@@ -1,5 +1,5 @@
-@extends('mater')
-@section('main-content')
+ @extends('mater')
+ @section('main-content')
 @if (session('themmoi'))
         <script>alert('Thêm câu hỏi thành công!')</script>
 @endif

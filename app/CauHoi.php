@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
+
 class CauHoi extends Model
 {
 	use SoftDeletes;
     protected $table='cau_hoi';
     protected $dates = ['deleted_at'];
+
+    /*public function LinhVuc(){
+    	return $this->belongsTo('App\LinhVuc');
+    }*/
 }
