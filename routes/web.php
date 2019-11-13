@@ -136,6 +136,15 @@ Route::prefix('ds_chitietluotchoi')->group(function(){
 	});
 	
 });
+Route::prefix('ds_lichsumuacredit')->group(function(){
+	Route::name('ds_lichsumuacredit.')->group(function(){
+		Route::get( '/','LichSuMuaCreditController@index')->name('danh-sach');
+
+        
+
+	});
+	
+});
 Route::prefix('ds_goicredit')->group(function(){
 	Route::name('ds_goicredit.')->group(function(){
 		Route::get( '/','GoiCreditController@index')->name('danh-sach');
