@@ -359,18 +359,18 @@
 
                             <li class="has-submenu">
                                 <a href="{{route('trangchu')}}">
-                                    <i class="la la-dashboard"></i>Trang Chủ <div class="arrow-down"></div></a>
+                                    <i class="la la-dashboard"></i>Trang Chủ</a>
                                 
                             </li>
 
                             <li class="has-submenu">
                                 <a href="{{ route('ds_linhvuc.danh-sach') }}">
-                                    <i class="la la-cube"></i>Lĩnh Vực <div class="arrow-down"></div></a>
+                                    <i class="la la-cube"></i>Lĩnh Vực</a>
                                 
                             </li>
 
                             <li class="has-submenu">
-                                <a href="{{ route('ds_cauhoi.danh-sach') }}"> <i class="la la-clone"></i>Câu Hỏi <div class="arrow-down"></div></a>
+                                <a href="{{ route('ds_cauhoi.danh-sach') }}"> <i class="la la-clone"></i>Câu Hỏi</a>
                     
                             </li>
 
@@ -398,7 +398,7 @@
 
                             <li class="has-submenu">
                                 <a href="{{ route('ds_goicredit.danh-sach') }}">
-                                    <i class="la la-diamond"></i>Gói Credit <div class="arrow-down"></div></a>
+                                    <i class="la la-diamond"></i>Gói Credit </a>
                           
                                 
                             </li>

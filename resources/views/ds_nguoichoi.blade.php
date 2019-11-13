@@ -20,7 +20,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Tên đăng nhập</th>
-                                            <th>Mật Khẩu</th>
+                                            
                                             <th>Email</th>
                                             <th>Hình đại diện</th>
                                              <th>Credit</th>  
@@ -34,7 +34,7 @@
                                            
                                             <td>{{ $nguoichoi->id }}</td>
                                             <td>{{ $nguoichoi->ten_dang_nhap }}</td>
-                                            <td>{{ $nguoichoi->mat_khau }}</td>
+                                            
                                             <td>{{ $nguoichoi->email}}</td>
                                             <td><img src="{{asset('img/'.$nguoichoi->hinh_dai_dien) }}" width="80px" height="80px"></td>
                                             <td>{{ $nguoichoi->credit }}</td>

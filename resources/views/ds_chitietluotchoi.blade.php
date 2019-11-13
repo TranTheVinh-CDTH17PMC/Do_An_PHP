@@ -14,23 +14,25 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Lượt chơi id</th>
-                                            <th>Câu hỏi id</th>
+                                            <th>Câu hỏi</th>
                                             <th>Phương án</th>
                                             <th>Điểm</th>
                                             <th>Sửa | Xóa</th>
                                             
                                         </tr>
                                     </thead>
-                                
-                                
+                                 
                                     <tbody>
                                          @foreach($chitietluotchoi as $chitietluotchoi)
+                                         <?php 
+                                            $cauhoi=DB::table('cau_hoi')->where('id',$chitietluotchoi->cau_hoi_id)->get();
+                                         ?>
                                         <tr>
                                            
                                             <td>{{ $chitietluotchoi->id }}</td>
                                             <td>{{ $chitietluotchoi->luot_choi_id }}</td>
-                                            <td>{{ $chitietluotchoi->cau_hoi_id }}</td>
-                                            <td>{{ $chitietluotchoi->phuong_an }}</td>
+                                            <td>{{ $cauhoi[0]->noi_dung }}</td>
+                                            <td>{{ $cauhoi[0]->dap_an }}</td>
                                             <td>{{ $chitietluotchoi->diem }}</td>
                                             <td>    
                                                

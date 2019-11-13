@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\ChiTietLuotChoi;
 use App\LuotChoi;
 use App\CauHoi;
+use App\LinhVuc;
 
 
 class ChiTietLuotChoiController extends Controller
@@ -18,6 +19,7 @@ class ChiTietLuotChoiController extends Controller
      */
     public function index()
     {
+        $linhvuc = LinhVuc::all();
         $chitietluotchoi=DB::table('chi_tiet_luot_choi')->whereNull('deleted_at')->get();
         return view('ds_chitietluotchoi',compact('chitietluotchoi'));
     }

@@ -34,11 +34,14 @@
                                 
                                     <tbody>
                                          @foreach($cauhoi as $cauhoi)
+                                         <?php 
+                                            $linhvuc=DB::table('linh_vuc')->where('id',$cauhoi->linh_vuc_id)->get();
+                                         ?>
                                         <tr>
                                            
                                             <td>{{ $cauhoi->id }}</td>
                                             <td>{{ $cauhoi->noi_dung }}</td>
-                                            <td>{{ $cauhoi->linh_vuc_id }}</td>
+                                            <td>{{ $linhvuc[0]->ten_linh_vuc}}</td>
                                             <td>{{ $cauhoi->phuong_an_a }}</td>
                                             <td>{{ $cauhoi->phuong_an_b }}</td>
                                             <td>{{ $cauhoi->phuong_an_c }}</td>
@@ -56,7 +59,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-trash-can-outline"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
+                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');" ><i class="mdi mdi-trash-can-outline" ></i></button>
                                                 </form>
 
                                                    

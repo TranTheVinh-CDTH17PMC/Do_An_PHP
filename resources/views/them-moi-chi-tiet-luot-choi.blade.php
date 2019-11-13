@@ -17,7 +17,7 @@
                                                 <label for="luot_choi_id">Lượt Chơi ID</label>
                                                 <select class="form-control" id="nguoi_choi_id" name="luot_choi_id">
                                                     @foreach($luotchoi as $luotchoi)
-                                                        <option>{{$luotchoi->id}}</option>
+                                                        <option value="">{{$luotchoi->id}}</option>
                                                     @endforeach
                                                 </select>
                                         </div>
@@ -27,7 +27,7 @@
                                                 <label for="cau_hoi_id">Câu hỏi ID</label>
                                                 <select class="form-control" id="cau_hoi_id" name="cau_hoi_id">
                                                     @foreach($cauhoi as $cauhoi)
-                                                        <option>{{$cauhoi->id}}</option>
+                                                        <option value="{{$cauhoi->id}}">{{$cauhoi->noi_dung}}</option>
                                                     @endforeach
                                                 </select>
                                         </div>
