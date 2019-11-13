@@ -48,7 +48,9 @@ class ChiTietLuotChoiController extends Controller
      */
     public function create()
     {
-       return view('them-moi-chi-tiet-luot-choi');
+       $luotchoi=LuotChoi::all();
+       $cauhoi=CauHoi::all();
+       return view('them-moi-chi-tiet-luot-choi',compact('luotchoi','cauhoi'));
       
        
     }
@@ -65,9 +67,7 @@ class ChiTietLuotChoiController extends Controller
         {
             return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('error','Lỗi');
         }
-        elseif ( is_int($request->diem)==false) {
-           return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('notint','Lỗi');
-        }
+     
         else
         {
             $chitietluotchoi=new ChiTietLuotChoi;
@@ -76,7 +76,7 @@ class ChiTietLuotChoiController extends Controller
             $chitietluotchoi->phuong_an=$request->phuong_an;
             $chitietluotchoi->diem=$request->diem;
             $chitietluotchoi->save();
-            $request->session()->flash('status', 'Thêm câu hỏi thành công!');
+            
             return redirect()->route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi')->with('success','Đăng kí thàng công');
         }
          
