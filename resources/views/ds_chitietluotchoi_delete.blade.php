@@ -8,9 +8,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                  <h4 class="header-title" style="font-size: 3em;text-align: center;">Danh sách chi tiết lượt chơi đã xóa tạm thời</h4>
+                                  <h4 class="header-title">Danh sách chi tiết</h4>
 
-                                <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 2em;text-align: center;">
+                                <table id="basic-datatable" class="table dt-responsive nowrap" >
                                     <thead>
                                         <tr>
                                             <th>ID</th>

@@ -33,8 +33,7 @@
                                         </div>
 
                                         <label for="phuong_an_c">Phương án  </label>
-                                        <input type="text" class="form-control" id="phuong_an" name="phuong_an" placeholder="Phương án>
-                                        <label for="phuong_an_d">Điểm</label>
+                                        <input type="text" class="form-control" id="phuong_an" name="phuong_an" placeholder="Phương án">Điểm</label>
                                         <input type="text" class="form-control" id="diem" name="diem" placeholder="Điểm">
                                      
                                     </div>

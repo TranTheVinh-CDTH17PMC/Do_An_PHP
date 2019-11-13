@@ -38,7 +38,7 @@
                                                
                                                     
                                                     <a href="{{route('ds_chitietluotchoi.ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi',$chitietluotchoi->id)}}" >
-                                                        <i class="btn btn-danger waves-effect waves-light" style="background-color: tomato;" >
+                                                        <i class="btn btn-purple waves-effect waves-light" >
                                                             <i class="mdi mdi-grease-pencil"></i>
                                                         </i>
                                                     </a> 
@@ -47,7 +47,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                        <button type="submit" id="submit_xoa" class="btn btn-primary waves-effect waves-light" style="background: #082756;" >
+                                                        <button type="submit" id="submit_xoa" class="btn btn-danger waves-effect waves-light" >
                                                             <i class="mdi mdi-trash-can-outline"></i>
                                                         </button>
                                                     </form>

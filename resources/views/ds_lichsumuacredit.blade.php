@@ -8,7 +8,7 @@
                                 <h4 class="header-title" >Lịch sử mua credit</h4>
                                 
 
-                                <table id="basic-datatable" class="table dt-responsive nowrap" style="font-size: 1em;text-align: center;">
+                                <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>id</th>
