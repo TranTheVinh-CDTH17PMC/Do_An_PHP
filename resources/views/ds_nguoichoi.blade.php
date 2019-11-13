@@ -1,5 +1,6 @@
  @extends('mater')
  @section('main-content')
+
  @if (session('themmoi'))
         <script>alert('Thêm người chơi thành công!')</script>
 @endif
@@ -11,7 +12,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách người chơi</h4>
-                                <a href="{{ route('ds_nguoichoi.ds_nguoichoi.xl-them-moi-nguoi-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm người chơi</button></a>
+                                <a href="{{route('ds_nguoichoi.ds_nguoichoi.xl-them-moi-nguoi-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm người chơi</button></a>
                                  <a href="{{ route('ds_nguoichoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
@@ -35,7 +36,7 @@
                                             <td>{{ $nguoichoi->ten_dang_nhap }}</td>
                                             <td>{{ $nguoichoi->mat_khau }}</td>
                                             <td>{{ $nguoichoi->email}}</td>
-                                            <td>{{ $nguoichoi->hinh_dai_dien }}</td>
+                                            <td><img src="{{asset('img/'.$nguoichoi->hinh_dai_dien) }}" width="80px" height="80px"></td>
                                             <td>{{ $nguoichoi->credit }}</td>
                                            
                                             <td>

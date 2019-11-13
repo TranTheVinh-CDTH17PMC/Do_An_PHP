@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\CauHoi;
 use App\LinhVuc;
+use Illuminate\Database\Seeder;
 
 class CauHoiController extends Controller
 {
@@ -84,8 +85,8 @@ class CauHoiController extends Controller
     public function edit($id)
     {
         $cauHoi=CauHoi::findOrFail($id);
-        $pageName='CauHoi-update';
-        return view('chinhsua-cauhoi',compact('cauHoi','pageName'));
+        $linhvuc = LinhVuc::all();
+        return view('chinhsua-cauhoi',compact('cauHoi','linhvuc'));
     }
 
     /**

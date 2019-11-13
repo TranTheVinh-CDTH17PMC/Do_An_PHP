@@ -6,7 +6,7 @@
                             <div class="card-body">
                                 <h4 class="mb-3 header-title">Thêm Người Chơi</h4>
 
-                                <form action="{{ route('ds_nguoichoi.ds_nguoichoi.cs-them-moi-nguoi-choi',$nguoichoi->id) }}" method="POST">
+                                <form action="{{ route('ds_nguoichoi.ds_nguoichoi.cs-them-moi-nguoi-choi',$nguoichoi->id) }}" method="POST" enctype="multipart/form-data">
                                    
                                 	@csrf
                                     <div class="form-group">
@@ -17,7 +17,7 @@
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" value="{{$nguoichoi->email}}">
                                         <label for="hinh_dai_dien">Hình đại diện</label>
-                                        <input type="text" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" value="{{$nguoichoi->hinh_dai_dien}}">
+                                        <input type="file" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien">
                                          <label for="diem_cao_nhat">Điểm cao nhất</label>
                                         <input type="text" class="form-control" id="diem_cao_nhat" name="diem_cao_nhat" value="{{$nguoichoi->diem_cao_nhat}}">
                                          <label for="credit">Credit</label>
