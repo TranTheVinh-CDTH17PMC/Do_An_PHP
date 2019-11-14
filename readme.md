@@ -1,14 +1,12 @@
-Đồ án LARAVEL
+#Đồ án LARAVEL
 
 GVHD: Trần Thanh Tuấn
 
-Giới thiệu
-
-Quản lý GAME AI LÀ TRIỆU PHÚ
+#Quản lý GAME AI LÀ TRIỆU PHÚ
 
 Lớp: CĐ TH 17PMC
 
-Sinh viên thực hiện
+#Sinh viên thực hiện
 
 Họ tên : Nguyễn Huyền Thoại - MSSV : 0306171304
 
