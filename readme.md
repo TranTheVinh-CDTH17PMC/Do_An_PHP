@@ -6,18 +6,13 @@ Giới thiệu
 
 Quản lý GAME AI LÀ TRIỆU PHÚ
 
+Lớp: CĐ TH 17PMC
+
 Sinh viên thực hiện
 
-Họ tên : Nguyễn Huyền Thoại
+Họ tên : Nguyễn Huyền Thoại - MSSV : 0306171304
 
-MSSV : 0306171304
+Họ tên : Trần Thế Vinh - MSSV : 0306171318
 
-Họ tên : Trần Thế Vinh
+Họ tên : Tôn Trọng Tín - MSSV : 0306171310
 
-MSSV : 0306171318
-
-Họ tên : Tôn Trọng Tín
-
-MSSV : 0306171310
-
-Lớp: CĐ TH 17PMC
