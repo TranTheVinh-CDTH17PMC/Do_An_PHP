@@ -1,8 +1,13 @@
 Đồ án LARAVEL
+
 GVHD: Trần Thanh Tuấn
+
 Giới thiệu
+
 Quản lý GAME AI LÀ TRIỆU PHÚ
+
 Sinh viên thực hiện
+
 Họ tên : Nguyễn Huyền Thoại
 MSSV : 0306171304
 
