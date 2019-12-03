@@ -8,7 +8,7 @@ use App\LinhVuc;
 class LinhVucController extends Controller
 {
     public function LayDanhSach(){
-    	$dslinhvuc=LinhVuc::all()->random(4);
+    	$dslinhvuc=LinhVuc::all();
     	$result=[
     		'success'=>true,
     		'data'=>$dslinhvuc

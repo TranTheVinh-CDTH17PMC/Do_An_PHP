@@ -11,7 +11,7 @@ class CauHoiController extends Controller
     public function LayCauHoi(Request $request){
         
         $linhvucid=$request->query('linh_vuc');
-        $cauhoi=CauHoi::where('linh_vuc_id',$linhvucid)->get()->random($linhvucid);
+        $cauhoi=CauHoi::where('linh_vuc_id',$linhvucid)->get();
         $result=[
         	'success'=>true,
         	'data'=>$cauhoi
