@@ -14,6 +14,14 @@ class NguoiChoiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function LayDanhSach(){
+        $dsnguoichoi=NguoiChoi::all();
+        $result=[
+            'success'=>true,
+            'data'=>$dsnguoichoi
+        ];
+        return response()->json($result);
+    }
     public function index()
     {
         //

@@ -26,8 +26,6 @@ Route::prefix('ds_linhvuc')->group(function(){
 	Route::name('ds_linhvuc.')->group(function(){
 		Route::get( '/','LinhvucController@index')->name('danh-sach');
 
-		
-
 		Route::get( '/ds_linhvuc_delete','LinhvucController@restore_ds')->name('danh-sach-xoa');
 
 		Route::get('/them-moi-linh-vuc','LinhVucController@create')->name('ds_linhvuc.them-moi-linh-vuc');
@@ -69,20 +67,15 @@ Route::prefix('ds_cauhoi')->group(function(){
 Route::prefix('ds_luotchoi')->group(function(){
 	Route::name('ds_luotchoi.')->group(function(){
 		Route::get( '/','LuotChoiController@index')->name('danh-sach');
-
-		Route::get( '/ds_luotchoi_delete','LuotChoiController@restore_ds')->name('danh-sach-xoa');
-
-		Route::get('/them-moi-luot-choi','LuotChoiController@create')->name('ds_luotchoi.them-moi-luot-choi');
-		
-		Route::post('/them-moi-luot-choi','LuotChoiController@store')->name('ds_luotchoi.xl-them-moi-luot-choi');
-
-		Route::get('/chinhsua-luotchoi/{id}','LuotChoiController@edit')->name('ds_luotchoi.cs-them-moi-luot-choi');
-
-		Route::post('/chinhsua-luotchoi/{id}', 'LuotChoiController@update')->name('xulisua');
-
+        //xem chi tiết của lượt chơi đó
+		Route::get('/xem-chi-tiet-tiet/{id}','LuotChoiController@XemChiTietTheoIDLuotChoi')->name('xem-chi-tiet-tiet');
+		//đưa vào thùng rác
 		Route::delete('/xoa/{id}','LuotChoiController@destroy')->name('xoa');
+		//danh sách xóa
+		Route::get( '/ds_luotchoi_delete','LuotChoiController@restore_ds')->name('danh-sach-xoa');
+		//khôi phục
+		Route::delete('ds_nguoichoi_delete/luulai/{id}','LuotChoiController@restore1')->name('luulai'); 
 
-		Route::delete('ds_cauhoi_delete/luulai/{id}','LuotChoiController@restore1')->name('luulai'); 
 
 	});
 	

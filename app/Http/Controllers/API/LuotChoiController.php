@@ -8,6 +8,16 @@ use App\LuotChoi;
 
 class LuotChoiController extends Controller
 {
+    public function LayLuotChoi(Request $request)
+    {
+        $nguoichoi_id=$request->query('nguoichoi_id');
+        $luotchoi=LuotChoi::where('nguoi_choi_id',$nguoichoi_id)->get();
+        $result=[
+            'success'=>true,
+            'data'=>$luotchoi
+        ];
+        return response()->json($result); 
+    }
     public function store(Request $request)
     {
         $luotchoi= new LuotChoi;
