@@ -10,10 +10,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Danh sách lượt chơi</h4>
-                                <a href="{{ route('ds_luotchoi.ds_luotchoi.xl-them-moi-luot-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm lượt chơi</button></a>
-                                 <a href="{{ route('ds_luotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
-
+                                <h4 class="header-title">Danh sách lượt chơi</h4>   
+                                   <a href="{{ route('ds_luotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>       
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
@@ -38,19 +36,17 @@
                                             <td>{{ $luotchoi->ngay_gio }}</td>
                                            
                                             <td>
-                                                <a href="{{ route('ds_luotchoi.xulisua',$luotchoi->id)}}">
-                                                    <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a>
-                                                    
-                                                    <script language="javascript">
-                                                    function check_register()
-                                                    // kiem tra cac textbox
-                                                     </script>
+                                                <a href="{{ route('ds_luotchoi.xem-chi-tiet-tiet',$luotchoi->id)}}">
+                                                    <button class="btn btn-purple waves-effect waves-light" type="button">
+                                                     <i class="la la-eye"></i> 
+                                                   </button></a>
+
                                                     <form method="POST" action="{{route('ds_luotchoi.xoa',$luotchoi->id)}}"  onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-trash-can-outline"  onclick="return confirm('Bạn có chắc là muốn xóa dữ liệu ?');"></i></button>
-                                                </form>
+                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-trash-can-outline" ></i></button>                                            </form>
+      
                                             </td>
                                            
                                         </tr>

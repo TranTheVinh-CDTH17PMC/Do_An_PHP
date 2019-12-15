@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGoiCreditsTable extends Migration
+class GoiCredit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CreateGoiCreditsTable extends Migration
      */
     public function up()
     {
+       
         Schema::create('goi_credit', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_goi');
@@ -30,6 +31,8 @@ class CreateGoiCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goi_credit');
+        Schema::table('goi_credit', function (Blueprint $table) {
+            //
+        });
     }
 }

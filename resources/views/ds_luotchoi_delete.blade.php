@@ -5,7 +5,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Danh sách lĩnh vực</h4>
+                                <h4 class="header-title">Danh sách Lượt chơi </h4>
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
@@ -36,7 +36,7 @@
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                         
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="return confirm('Bạn có muốn Restore không ?');">Restore</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Restore</button>
                                                     </form>
                                                
                                             </td>

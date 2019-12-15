@@ -14,6 +14,14 @@ class NguoiChoiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function LayDanhSach(){
+        $dsnguoichoi=NguoiChoi::all();
+        $result=[
+            'success'=>true,
+            'data'=>$dsnguoichoi
+        ];
+        return response()->json($result);
+    }
     public function index()
     {
         //
@@ -41,7 +49,10 @@ class NguoiChoiController extends Controller
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=Hash::make($request->mat_khau);
         $nguoichoi->email=$request->email;
-        $nguoichoi->hinh_dai_dien=$request->hinh_dai_dien;
+         $file=$request->hinh_dai_dien;
+        $filename=$file->getClientOriginalName();
+        $file->move('img/',$filename);
+        $nguoichoi->hinh_dai_dien=$filename;      
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
@@ -56,7 +67,7 @@ class NguoiChoiController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -67,7 +78,12 @@ class NguoiChoiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dsnguoichoi=NguoiChoi::findOrFail($id);
+        $result=[
+            'success'=>true,
+            'data'=>$dsnguoichoi
+        ];
+        return response()->json($result);
     }
 
     /**
@@ -79,7 +95,15 @@ class NguoiChoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nguoichoi = NguoiChoi::find($id);
+        $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
+        $nguoichoi->mat_khau=$request->mat_khau;
+        $nguoichoi->email=$request->email;
+        $nguoichoi->hinh_dai_dien=$request->hinh_dai_dien;
+        $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
+        $nguoichoi->credit=$request->credit;
+        $nguoichoi->save();
+        return response()->json();
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChiTietLuotChoisTable extends Migration
+class Chitietluotchoi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChiTietLuotChoisTable extends Migration
      */
     public function up()
     {
-        Schema::create('chi_tiet_luot_choi', function (Blueprint $table) {
+            Schema::create('chi_tiet_luot_choi', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('luot_choi_id');
             $table->unsignedInteger('cau_hoi_id');
@@ -33,6 +33,8 @@ class CreateChiTietLuotChoisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chi_tiet_luot_choi');
+        Schema::table('chi_tiet_luot_choi', function (Blueprint $table) {
+            //
+        });
     }
 }
