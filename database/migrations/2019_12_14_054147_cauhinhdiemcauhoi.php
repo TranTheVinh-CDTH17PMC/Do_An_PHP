@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCauHinhDiemCauHoisTable extends Migration
+class Cauhinhdiemcauhoi extends Migration
 {
     /**
      * Run the migrations.
@@ -29,6 +29,8 @@ class CreateCauHinhDiemCauHoisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hinh_diem_cau_hoi');
+        Schema::table('cau_hinh_diem_cau_hoi', function (Blueprint $table) {
+            //
+        });
     }
 }

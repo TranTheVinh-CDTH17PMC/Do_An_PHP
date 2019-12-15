@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCauHinhAppsTable extends Migration
+class Nguoichoi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateCauHinhAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hinh_app', function (Blueprint $table) {
+       Schema::create('nguoi_choi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('co_hoi_sai');
-            $table->integer('thoi_gian_tra_loi');
+            $table->string('ten_dang_nhap');
+            $table->string('mat_khau');
+            $table->string('email');
+            $table->string('hinh_dai_dien');
+            $table->integer('diem_cao_nhat');
+            $table->integer('credit');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +33,8 @@ class CreateCauHinhAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hinh_app');
+        Schema::table('nguoi_choi', function (Blueprint $table) {
+            //
+        });
     }
 }
