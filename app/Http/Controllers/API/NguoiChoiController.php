@@ -47,7 +47,7 @@ class NguoiChoiController extends Controller
     {
         $nguoichoi=new NguoiChoi;
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
-        $nguoichoi->mat_khau=Hash::make($request->mat_khau);
+        $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
         $nguoichoi->hinh_dai_dien=$request->hinh_dai_dien;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
