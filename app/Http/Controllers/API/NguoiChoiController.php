@@ -1,11 +1,13 @@
 <?php
-
 namespace App\Http\Controllers\API;
 
+use App\NguoiChoi;
+use App\LuotChoi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\NguoiChoi;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class NguoiChoiController extends Controller
 {
@@ -14,8 +16,24 @@ class NguoiChoiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function LayDSLichSu()
+    {
+        $dslichsu = DB::table('nguoi_choi')
+        ->select('nguoi_choi.ten_dang_nhap','luot_choi.diem')
+        ->join('luot_choi','luot_choi.nguoi_choi_id','=','nguoi_choi.id')
+        ->orderBy('diem','desc')
+        ->distinct('nguoi_choi.ten_dang_nhap')
+        ->get('nguoi_choi.ten_dang_nhap');
+        $result=[
+            'success'=>true,
+            'data'=>$dslichsu
+        ];
+        return response()->json($result);
+    }
     public function LayDanhSach(){
-        $dsnguoichoi=NguoiChoi::all();
+        $dsnguoichoi = DB::table('nguoi_choi')
+        ->orderBy('diem_cao_nhat','desc')
+        ->get();
         $result=[
             'success'=>true,
             'data'=>$dsnguoichoi
@@ -49,10 +67,10 @@ class NguoiChoiController extends Controller
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=Hash::make($request->mat_khau);
         $nguoichoi->email=$request->email;
-         $file=$request->hinh_dai_dien;
+        $file=$request->hinh_dai_dien;
         $filename=$file->getClientOriginalName();
         $file->move('img/',$filename);
-        $nguoichoi->hinh_dai_dien=$filename;      
+        $nguoichoi->hinh_dai_dien=$filename;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
@@ -85,7 +103,20 @@ class NguoiChoiController extends Controller
         ];
         return response()->json($result);
     }
-
+    public function updatemk(Request $request,$id)
+    {
+        $nguoichoi=NguoiChoi::findOrFail($id);
+        $nguoichoi->mat_khau=$request->mat_khau;
+        $nguoichoi->save();
+        return response()->json();
+    }
+    public function updatediem(Request $request,$id)
+    {
+        $nguoichoi=NguoiChoi::findOrFail($id);
+        $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
+        $nguoichoi->save();
+        return response()->json();
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -95,11 +126,13 @@ class NguoiChoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nguoichoi = NguoiChoi::find($id);
+        $nguoichoi=NguoiChoi::findOrFail($id);
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
-        $nguoichoi->hinh_dai_dien=$request->hinh_dai_dien;
+        $file=base64_encode($request->hinh_dai_dien);
+        $file->move('public/img/',"123");
+        $nguoichoi->hinh_dai_dien="123";
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
