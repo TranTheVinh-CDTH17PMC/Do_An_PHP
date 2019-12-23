@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
+use App\NguoiChoi;
 
 class NguoiChoiController extends Controller
 {
@@ -34,6 +37,8 @@ class NguoiChoiController extends Controller
         $dsnguoichoi = DB::table('nguoi_choi')
         ->orderBy('diem_cao_nhat','desc')
         ->get();
+    public function LayDanhSach(){
+        $dsnguoichoi=NguoiChoi::all();
         $result=[
             'success'=>true,
             'data'=>$dsnguoichoi
@@ -65,18 +70,21 @@ class NguoiChoiController extends Controller
     {
         $nguoichoi=new NguoiChoi;
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
-        $nguoichoi->mat_khau=Hash::make($request->mat_khau);
+        $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
         $file=$request->hinh_dai_dien;
         $filename=$file->getClientOriginalName();
         $file->move('img/',$filename);
         $nguoichoi->hinh_dai_dien=$filename;
+        $img=$request->hinh_dai_dien;
+        $foo =base64_decode("$img");
+        file_put_contents("img/".$request->ten_dang_nhap.time().".JPG", $foo);
+        $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
         return response()->json();
     }
-
     /**
      * Display the specified resource.
      *
