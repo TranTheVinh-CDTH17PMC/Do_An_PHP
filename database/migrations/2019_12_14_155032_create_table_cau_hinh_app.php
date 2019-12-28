@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class KhoangoaiCauhoiLinhvuc extends Migration
+class CreateTableCauHinhApp extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class KhoangoaiCauhoiLinhvuc extends Migration
      */
     public function up()
     {
-        Schema::table('cau_hoi', function (Blueprint $table) {
-            $table->foreign('linh_vuc_id')->references('id')->on('table_linhvuc');
+        Schema::create('cau_hinh_app', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('co_hoi_sai');
+            $table->integer('thoi_gian_tra_loi');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +29,6 @@ class KhoangoaiCauhoiLinhvuc extends Migration
      */
     public function down()
     {
-        Schema::table('cau_hoi', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('cau_hinh_app');
     }
 }

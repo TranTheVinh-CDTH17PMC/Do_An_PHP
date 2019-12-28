@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TableLinhvuc extends Migration
+class CreateTableCauHinhTroGiup extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class TableLinhvuc extends Migration
      */
     public function up()
     {
-        Schema::create('table_Linhvuc', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('ten_linh_vuc');
+        Schema::create('cau_hinh_tro_giup', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('loai_tro_giup');
+            $table->integer('thu_tu');
+            $table->integer('credit');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +30,6 @@ class TableLinhvuc extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_Linhvuc');
+        Schema::dropIfExists('cau_hinh_tro_giup');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCauHinhTroGiupsTable extends Migration
+class CreateTableQuanTriVien extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCauHinhTroGiupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hinh_tro_giup', function (Blueprint $table) {
-             $table->increments('id');
-            $table->integer('loai_tro_giup');
-            $table->integer('thu_tu');
-            $table->integer('credit');
+        Schema::create('quan_tri_vien', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('ten_dang_nhap');
+            $table->string('mat_khau');
+            $table->string('ho_ten');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateCauHinhTroGiupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hinh_tro_giup');
+        Schema::dropIfExists('quan_tri_vien');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinhVucsTable extends Migration
+class CreateTableLinhVuc extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateLinhVucsTable extends Migration
     {
         Schema::create('linh_vuc', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_linh_vuc');     
+            $table->string('ten_linh_vuc');
             $table->timestamps();
             $table->softDeletes();
         });

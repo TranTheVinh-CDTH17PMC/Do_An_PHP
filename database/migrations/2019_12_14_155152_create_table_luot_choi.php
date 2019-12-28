@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLuotChoisTable extends Migration
+class CreateTableLuotChoi extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,13 @@ class CreateLuotChoisTable extends Migration
     {
         Schema::create('luot_choi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('nguoi_choi_id');
+            $table->unsignedInteger('nguoi_choi_id');
             $table->integer('so_cau');
             $table->integer('diem');
             $table->dateTime('ngay_gio');
             $table->timestamps();
             $table->softDeletes();
-            //$table->foreign('nguoi_choi_id')->references('id')->on('nguoi_choi');
+            $table->foreign('nguoi_choi_id')->references('id')->on('nguoi_choi');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCauHinhDiemCauHoisTable extends Migration
+class CreateTableChiTietLuotChoi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateCauHinhDiemCauHoisTable extends Migration
      */
     public function up()
     {
-        Schema::create('cau_hinh_diem_cau_hoi', function (Blueprint $table) {
+        Schema::create('chi_tiet_luot_choi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thu_tu');
+            $table->unsignedInteger('luot_choi_id');
+            $table->unsignedInteger('cau_hoi_id');
+            $table->string('phuong_an');
             $table->integer('diem');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('luot_choi_id')->references('id')->on('luot_choi');
+            $table->foreign('cau_hoi_id')->references('id')->on('cau_hoi');
         });
     }
 
@@ -29,6 +33,6 @@ class CreateCauHinhDiemCauHoisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cau_hinh_diem_cau_hoi');
+        Schema::dropIfExists('chi_tiet_luot_choi');
     }
 }
