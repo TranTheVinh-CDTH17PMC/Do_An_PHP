@@ -57,8 +57,18 @@ class NguoiChoiController extends Controller
         $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
+        $nguoichoi->mxh_id=$request->mxh_id;
         $nguoichoi->save();
         return response()->json();
+    }
+     public function CapNhatCreditNguoiChoi(Request $request)
+    {
+        
+
+        $nguoichoi = NguoiChoi::find($request->id);
+        $nguoichoi->credit=$request->credit;
+        $nguoichoi->save();
+
     }
     /**
      * Display the specified resource.
