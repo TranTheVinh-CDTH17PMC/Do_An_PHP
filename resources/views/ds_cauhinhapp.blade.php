@@ -8,17 +8,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách cấu hình</h4>
-                                <a href="{{ route('ds_cauhinhapp.ds_cauhinhapp.xl-them-moi-cau-hinh-app') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
-                                <a href="{{ route('ds_cauhinhapp.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
-
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Cơ hội sai </th>
                                             <th>Thời gian trả lời (giây) </th>
-                                            <th>Sửa | Xóa</th>
-                                            
+                                            <th>Cập Nhật</th>
                                         </tr>
                                     </thead>
                                 
@@ -41,15 +37,7 @@
                                                      <script language="javascript">
                                                     function check_register()
                                                     // kiem tra cac textbox
-                                                     </script>
-                                                    <form method="POST" action="{{route('ds_cauhinhapp.xoa',$cauhinhapp->id)}}"  onsubmit="return check_register();">
-                                                        {{ method_field('DELETE') }}
-                                                        {{csrf_field()}}
-                                                       
-                                                       <button type="submit" id="submit_xoa" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Bạn có chắclà muốn xóa dữ liệu ?');" ><i class="mdi mdi-trash-can-outline"></i>
-                                                        </button>
-                                                       </form>
-                                               
+                                                     </script>                                               
                                             </td>
                                            
                                         </tr>

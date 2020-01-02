@@ -41,11 +41,10 @@ class CauHinhAppController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->co_hoi_sai==""|| $request->thoi_gian_tra_loi=="" )
+        if($request->co_hoi_sai=="" || $request->thoi_gian_tra_loi=="")
         {
             return redirect('ds_cauhinhapp/them-moi-cau-hinh-app')->with('error','Vui lòng không để trống');
         }
-        
         else
         {
        
@@ -92,11 +91,18 @@ class CauHinhAppController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $cauhinhapp=CauHinhApp::find($id);
-        $cauhinhapp->co_hoi_sai=$request->co_hoi_sai;
-        $cauhinhapp->thoi_gian_tra_loi=$request->thoi_gian_tra_loi;
-        $cauhinhapp->save();
-        return redirect('ds_cauhinhapp')->with('success','Đăng kí thàng công');
+        if($request->co_hoi_sai=="" || $request->thoi_gian_tra_loi=="")
+        {
+            return redirect('ds_cauhinhapp/chinhsua-cauhinhapp/'.$id.'')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $cauhinhapp=CauHinhApp::find($id);
+            $cauhinhapp->co_hoi_sai=$request->co_hoi_sai;
+            $cauhinhapp->thoi_gian_tra_loi=$request->thoi_gian_tra_loi;
+            $cauhinhapp->save();
+            return redirect('ds_cauhinhapp')->with('success','Đăng kí thàng công');
+        }
     }
 
     /**
