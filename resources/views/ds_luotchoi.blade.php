@@ -20,7 +20,6 @@
                                             <th>Số Câu</th>
                                             <th>Điểm</th>
                                             <th>Ngày giờ</th>
-                                            <th>Sửa | Xóa</th>
                                         </tr>
                                     </thead>
                                 
@@ -36,16 +35,11 @@
                                             <td>{{ $luotchoi->ngay_gio }}</td>
                                            
                                             <td>
-                                                <a href="{{ route('ds_luotchoi.xem-chi-tiet-tiet',$luotchoi->id)}}">
-                                                    <button class="btn btn-purple waves-effect waves-light" type="button">
-                                                     <i class="la la-eye"></i> 
-                                                   </button></a>
-
-                                                    <form method="POST" action="{{route('ds_luotchoi.xoa',$luotchoi->id)}}"  onsubmit="return check_register();">
+                                                   <!--  <form method="POST" action="{{route('ds_luotchoi.xoa',$luotchoi->id)}}"  onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        
-                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-trash-can-outline" ></i></button>                                            </form>
+                                                    <button class="btn btn-danger waves-effect waves-light" type="submit" ><i class="mdi mdi-trash-can-outline" ></i></button>                                            </form> -->
       
                                             </td>
                                            
