@@ -1,15 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\API;
 
-use App\NguoiChoi;
-use App\LuotChoi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
+use App\NguoiChoi;
 
 class NguoiChoiController extends Controller
 {
@@ -18,38 +16,14 @@ class NguoiChoiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function LayDSLichSu()
-    {
-        $dslichsu = DB::table('nguoi_choi')
-        ->select('nguoi_choi.ten_dang_nhap','luot_choi.diem')
-        ->join('luot_choi','luot_choi.nguoi_choi_id','=','nguoi_choi.id')
-        ->orderBy('diem','desc')
-        ->distinct('nguoi_choi.ten_dang_nhap')
-        ->get('nguoi_choi.ten_dang_nhap');
-        $result=[
-            'success'=>true,
-            'data'=>$dslichsu
-        ];
-        return response()->json($result);
-    }
     public function LayDanhSach(){
-        $dsnguoichoi = DB::table('nguoi_choi')
-        ->orderBy('diem_cao_nhat','desc')
-        ->get();
+        $dsnguoichoi=NguoiChoi::all();
         $result=[
             'success'=>true,
             'data'=>$dsnguoichoi
         ];
         return response()->json($result);
     }
-    // public function LayDanhSach(){
-    //     $dsnguoichoi=NguoiChoi::all();
-    //     $result=[
-    //         'success'=>true,
-    //         'data'=>$dsnguoichoi
-    //     ];
-    //     return response()->json($result);
-    // }
     public function index()
     {
         //
@@ -83,18 +57,8 @@ class NguoiChoiController extends Controller
         $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
-        $nguoichoi->mxh_id=$request->mxh_id;
         $nguoichoi->save();
         return response()->json();
-    }
-     public function CapNhatCreditNguoiChoi(Request $request)
-    {
-        
-
-        $nguoichoi = NguoiChoi::find($request->id);
-        $nguoichoi->credit=$request->credit;
-        $nguoichoi->save();
-
     }
     /**
      * Display the specified resource.
@@ -104,7 +68,7 @@ class NguoiChoiController extends Controller
      */
     public function show($id)
     {
-       
+        //
     }
 
     /**
@@ -115,34 +79,9 @@ class NguoiChoiController extends Controller
      */
     public function edit($id)
     {
-        $dsnguoichoi=NguoiChoi::findOrFail($id);
-        $result=[
-            'success'=>true,
-            'data'=>$dsnguoichoi
-        ];
-        return response()->json($result);
+        //
     }
-    public function updatemk(Request $request,$id)
-    {
-        $nguoichoi=NguoiChoi::findOrFail($id);
-        $nguoichoi->mat_khau=$request->mat_khau;
-        $nguoichoi->save();
-        return response()->json();
-    }
-    public function updatediem(Request $request,$id)
-    {
-        $nguoichoi=NguoiChoi::findOrFail($id);
-        $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
-        $nguoichoi->save();
-        return response()->json();
-    }
-    public function updatecredit(Request $request,$id)
-    {
-        $nguoichoi=NguoiChoi::findOrFail($id);
-        $nguoichoi->credit=$request->credit;
-        $nguoichoi->save();
-        return response()->json();
-    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -152,18 +91,7 @@ class NguoiChoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nguoichoi=NguoiChoi::findOrFail($id);
-        $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
-        $nguoichoi->mat_khau=$request->mat_khau;
-        $nguoichoi->email=$request->email;
-        $img=$request->hinh_dai_dien;
-        $foo =base64_decode("$img");
-        file_put_contents("img/".$request->ten_dang_nhap.time().".JPG", $foo);
-        $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
-        $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
-        $nguoichoi->credit=$request->credit;
-        $nguoichoi->save();
-        return response()->json();
+        //
     }
 
     /**

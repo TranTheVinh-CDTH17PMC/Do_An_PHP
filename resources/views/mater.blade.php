@@ -383,6 +383,9 @@
                                                 <a href="{{ route('ds_luotchoi.danh-sach') }}">Lượt chơi</a>
                                             </li>
                                             <li>
+                                                <a href="{{ route('ds_chitietluotchoi.danh-sach') }}">Chi tiết lượt chơi</a>
+                                            </li>
+                                            <li>
                                                 <a href="{{ route('ds_lichsumuacredit.danh-sach') }}">Lịch sử mua Credit</a>
                                             </li>
                                             

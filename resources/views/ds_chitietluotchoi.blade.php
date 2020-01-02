@@ -6,6 +6,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title" >Danh sách chi tiết lượt chơi</h4>
+                                <a href="{{ route('ds_chitietluotchoi.ds_chitietluotchoi.them-moi-chi-tiet-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button" >Thêm mới</button></a>
                                 <a href="{{ route('ds_chitietluotchoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button" > Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap" >
@@ -38,7 +39,11 @@
                                                      
                                                
                                                     
-                                                  
+                                                    <a href="{{route('ds_chitietluotchoi.ds_chitietluotchoi.chinh-sua-chi-tiet-luot-choi',$chitietluotchoi->id)}}" >
+                                                        <i class="btn btn-purple waves-effect waves-light" >
+                                                            <i class="mdi mdi-grease-pencil"></i>
+                                                        </i>
+                                                    </a> 
                                                     
                                                     <form onsubmit=" return (xacnhan())" method="POST" action="{{route('ds_chitietluotchoi.xoa',$chitietluotchoi->id)}}">
                                                         {{ method_field('DELETE') }}
