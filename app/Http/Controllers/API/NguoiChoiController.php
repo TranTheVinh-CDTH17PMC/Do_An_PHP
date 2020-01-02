@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
-use App\NguoiChoi;
 
 class NguoiChoiController extends Controller
 {
@@ -37,14 +36,20 @@ class NguoiChoiController extends Controller
         $dsnguoichoi = DB::table('nguoi_choi')
         ->orderBy('diem_cao_nhat','desc')
         ->get();
-    public function LayDanhSach(){
-        $dsnguoichoi=NguoiChoi::all();
         $result=[
             'success'=>true,
             'data'=>$dsnguoichoi
         ];
         return response()->json($result);
     }
+    // public function LayDanhSach(){
+    //     $dsnguoichoi=NguoiChoi::all();
+    //     $result=[
+    //         'success'=>true,
+    //         'data'=>$dsnguoichoi
+    //     ];
+    //     return response()->json($result);
+    // }
     public function index()
     {
         //
@@ -72,16 +77,13 @@ class NguoiChoiController extends Controller
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
-        $file=$request->hinh_dai_dien;
-        $filename=$file->getClientOriginalName();
-        $file->move('img/',$filename);
-        $nguoichoi->hinh_dai_dien=$filename;
         $img=$request->hinh_dai_dien;
         $foo =base64_decode("$img");
         file_put_contents("img/".$request->ten_dang_nhap.time().".JPG", $foo);
         $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
+        $nguoichoi->mxh_id=$request->mxh_id;
         $nguoichoi->save();
         return response()->json();
     }
@@ -125,6 +127,13 @@ class NguoiChoiController extends Controller
         $nguoichoi->save();
         return response()->json();
     }
+    public function updatecredit(Request $request,$id)
+    {
+        $nguoichoi=NguoiChoi::findOrFail($id);
+        $nguoichoi->credit=$request->credit;
+        $nguoichoi->save();
+        return response()->json();
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -138,9 +147,10 @@ class NguoiChoiController extends Controller
         $nguoichoi->ten_dang_nhap=$request->ten_dang_nhap;
         $nguoichoi->mat_khau=$request->mat_khau;
         $nguoichoi->email=$request->email;
-        $file=base64_encode($request->hinh_dai_dien);
-        $file->move('public/img/',"123");
-        $nguoichoi->hinh_dai_dien="123";
+        $img=$request->hinh_dai_dien;
+        $foo =base64_decode("$img");
+        file_put_contents("img/".$request->ten_dang_nhap.time().".JPG", $foo);
+        $nguoichoi->hinh_dai_dien=$request->ten_dang_nhap.time().".JPG" ;
         $nguoichoi->diem_cao_nhat=$request->diem_cao_nhat;
         $nguoichoi->credit=$request->credit;
         $nguoichoi->save();
