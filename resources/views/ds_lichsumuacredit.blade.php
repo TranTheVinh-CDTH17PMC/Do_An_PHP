@@ -12,8 +12,8 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Người chơi id</th>
-                                            <th>Gói credit id</th>
+                                            <th>Người chơi </th>
+                                            <th>Gói credit </th>
                                             <th>Credit</th>
                                             <th>Số tiền</th>
     

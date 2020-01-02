@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ChiTietLuotChoi;
 
+
 class ChiTietLuotChoiController extends Controller
 {
    public function store(Request $request)
@@ -18,5 +19,17 @@ class ChiTietLuotChoiController extends Controller
    	$chitietluotchoi->save();
     return response()->json();
    }
+    public function LayChiTietTheoLuotChoi(Request $request)
+    {
+
+        $luotchoi_id=$request->query('luotchoi_id');
+        $luotchoi=ChiTietLuotChoi::where('luot_choi_id',$luotchoi_id)->get();
+        $result=[
+            'success'=>true,
+            'data'=>$luotchoi
+        ];
+        return response()->json($result); 
+    }
+
 
 }
