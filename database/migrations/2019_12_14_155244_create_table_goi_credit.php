@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Linhvuc extends Migration
+class CreateTableGoiCredit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class Linhvuc extends Migration
      */
     public function up()
     {
-        Schema::create('linh_vuc', function (Blueprint $table) {
+        Schema::create('goi_credit', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_linh_vuc');
+            $table->string('ten_goi');
+            $table->string('credit');
+            $table->string('so_tien');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,8 +30,6 @@ class Linhvuc extends Migration
      */
     public function down()
     {
-        Schema::table('linh_vuc', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('goi_credit');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Luotchoi extends Migration
+class CreateLichSuMuaCredit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class Luotchoi extends Migration
      */
     public function up()
     {
-        Schema::create('luot_choi', function (Blueprint $table) {
+        Schema::create('lich_su_mua_credit', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('nguoi_choi_id');
-            $table->integer('so_cau');
-            $table->integer('diem');
-            $table->dateTime('ngay_gio');
+            $table->unsignedInteger('goi_credit_id');
+            $table->integer('credit');
+            $table->integer('so_tien');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('nguoi_choi_id')->references('id')->on('nguoi_choi');
+            $table->foreign('goi_credit_id')->references('id')->on('goi_credit');
         });
     }
 
@@ -32,8 +33,6 @@ class Luotchoi extends Migration
      */
     public function down()
     {
-        Schema::table('luot_choi', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('lich_su_mua_credit');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Quantrivien extends Migration
+class CreateTableQuanTriVien extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Quantrivien extends Migration
      */
     public function up()
     {
-          Schema::create('quan_tri_vien', function (Blueprint $table) {
+        Schema::create('quan_tri_vien', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_dang_nhap');
             $table->string('mat_khau');
@@ -30,8 +30,6 @@ class Quantrivien extends Migration
      */
     public function down()
     {
-        Schema::table('quan_tri_vien', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('quan_tri_vien');
     }
 }
