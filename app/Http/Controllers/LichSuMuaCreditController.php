@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LichSuMuaCredit;
 
 class LichSuMuaCreditController extends Controller
 {
@@ -13,7 +14,8 @@ class LichSuMuaCreditController extends Controller
      */
     public function index()
     {
-        return view('ds_lichsumuacredit');
+         $lsmua = LichSuMuaCredit::all();
+        return view('ds_lichsumuacredit',compact('lsmua'));
     }
 
     /**

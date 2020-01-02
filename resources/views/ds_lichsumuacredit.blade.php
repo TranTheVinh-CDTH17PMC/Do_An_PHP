@@ -24,7 +24,21 @@
                                 
                                     <tbody>
                                          
-                                                  
+                                           @foreach($lsmua as $lsmua)
+                                         <?php 
+                                            $nguoichoi=DB::table('nguoi_choi')->where('id',$lsmua->nguoi_choi_id)->get();
+                                            $goicredit=DB::table('goi_credit')->where('id',$lsmua->goi_credit_id)->get();
+                                         ?>
+                                        <tr>
+                                           
+                                            <td>{{ $lsmua->id }}</td>
+                                            <td>{{ $nguoichoi[0]->ten_dang_nhap }}</td>
+                                            <td>{{ $goicredit[0]->ten_goi }}</td>
+                                            <td>{{ $lsmua->credit }}</td>
+                                            <td>{{ $lsmua->so_tien }}</td>
+                                           
+                                        </tr>
+                                         @endforeach       
                                               
                                     </tbody>
                                 </table>

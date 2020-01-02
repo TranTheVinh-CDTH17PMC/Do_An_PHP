@@ -12,7 +12,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách người chơi</h4>
-                                <!--<a href="{{route('ds_nguoichoi.ds_nguoichoi.xl-them-moi-nguoi-choi') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm người chơi</button></a>-->
                                  <a href="{{ route('ds_nguoichoi.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
@@ -41,9 +40,7 @@
                                             <td>{{ $nguoichoi->credit }}</td>
                                              <td>{{ $nguoichoi->MXH_ID }}</td>
                                             <td>
-                                                <!--<a href="{{ route('ds_nguoichoi.xulisua',$nguoichoi->id) }}">-->
-                                                    <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" la la-eye"></i></button></a> 
-
+                                            
                                                     <script language="javascript">
                                                     function check_register()
                                                     // kiem tra cac textbox
