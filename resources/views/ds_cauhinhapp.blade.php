@@ -8,8 +8,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Danh sách cấu hình</h4>
-                                <a href="{{ route('ds_cauhinhapp.ds_cauhinhapp.xl-them-moi-cau-hinh-app') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
-                                <a href="{{ route('ds_cauhinhapp.danh-sach-xoa') }}"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
+                                <a href="#"><button class="btn btn-primary waves-effect waves-light" type="button">Thêm mới</button></a>
+                                <a href="#"><button class="btn btn-primary waves-effect waves-light" type="button">Thùng rác</button></a>
 
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
@@ -35,14 +35,14 @@
                                                      
                                                
                                             
-                                                    <a href="{{ route('ds_cauhinhapp.ds_cauhinhapp.cs-them-moi-cau-hinh-app',$cauhinhapp->id) }}">
+                                                    <a href="#">
                                                       <button class="btn btn-purple waves-effect waves-light" type="button"><i class=" mdi mdi-pencil-outline"></i></button></a> 
                                                     
                                                      <script language="javascript">
                                                     function check_register()
                                                     // kiem tra cac textbox
                                                      </script>
-                                                    <form method="POST" action="{{route('ds_cauhinhapp.xoa',$cauhinhapp->id)}}"  onsubmit="return check_register();">
+                                                    <form method="POST" action="#"  onsubmit="return check_register();">
                                                         {{ method_field('DELETE') }}
                                                         {{csrf_field()}}
                                                        

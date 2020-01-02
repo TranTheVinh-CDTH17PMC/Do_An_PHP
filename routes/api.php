@@ -21,6 +21,7 @@ Route::get('nguoi-choi','API\NguoiChoiController@LayDanhSach');
 Route::get('linh-vuc','API\LinhVucController@LayDanhSach');
 Route::get('cau-hoi','API\CauHoiController@LayCauHoi');
 Route::get('luot-choi-ds','API\NguoiChoiController@LayDSLichSu');
+Route::get('cau-hinh-app','API\CauHinhAppController@index');
 
 Route::post('nguoi-choi/chinhsua-nguoichoi/{id}','API\NguoiChoiController@update');
 Route::post('nguoi-choi/quen-mat-khau/{id}','API\NguoiChoiController@updatemk');
