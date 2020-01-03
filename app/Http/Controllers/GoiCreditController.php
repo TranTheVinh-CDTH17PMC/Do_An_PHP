@@ -91,12 +91,19 @@ class GoiCreditController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $goiCredits=GoiCredit::find($id);
-        $goiCredits->ten_goi=$request->ten_goi;
-        $goiCredits->credit=$request->credit;
-        $goiCredits->so_tien=$request->so_tien;
-        $goiCredits->save();
-        return redirect('ds_goicredit')->with('success','Đăng kí thàng công');
+         if($request->ten_goi==""|| $request->credit=="" || $request->so_tien=="" )
+        {
+            return redirect('ds_goicredit/them-moi-goi-credit')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $goiCredits=GoiCredit::find($id);
+            $goiCredits->ten_goi=$request->ten_goi;
+            $goiCredits->credit=$request->credit;
+            $goiCredits->so_tien=$request->so_tien;
+            $goiCredits->save();
+            return redirect('ds_goicredit')->with('success','Đăng kí thàng công');
+        }
     }
 
     /**

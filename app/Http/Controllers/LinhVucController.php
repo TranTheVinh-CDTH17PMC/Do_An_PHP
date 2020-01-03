@@ -89,11 +89,18 @@ class LinhVucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $linhvuc=LinhVuc::find($id);
-        $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
-        $linhvuc->save();
-        $request->session()->flash('chinhsua', 'Thêm câu hỏi thành công!');
-        return redirect('ds_linhvuc');
+        if($request->ten_linh_vuc=="")
+        {
+            return redirect('ds_linhvuc/them-moi-linh-vuc')->with('error','Vui lòng không để trống');
+        }
+        else
+        {
+            $linhvuc=LinhVuc::find($id);
+            $linhvuc->ten_linh_vuc=$request->ten_linh_vuc;
+            $linhvuc->save();
+            $request->session()->flash('chinhsua', 'Thêm câu hỏi thành công!');
+            return redirect('ds_linhvuc');
+        }
     }
 
     /**

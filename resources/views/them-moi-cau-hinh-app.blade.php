@@ -27,9 +27,8 @@
                                  @endphp
                                  <i style='color: #ff3600;font-style:bold; margin-top: 25px; font-size:20px; padding-left: 0.2em;' class="mdi mdi-emoticon-dead"></i>
                                 </div>
-                               
-                               
                                 @endif
+                                
                                 @if (session('success'))
                                   @php
                                   echo"<script>alert('Thêm thành công')</script>";

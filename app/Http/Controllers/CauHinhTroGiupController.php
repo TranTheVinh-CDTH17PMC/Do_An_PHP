@@ -92,12 +92,20 @@ class CauHinhTroGiupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cauhinhtrogiup=CauHinhTroGiup::find($id);
-        $cauhinhtrogiup->loai_tro_giup=$request->loai_tro_giup;
-        $cauhinhtrogiup->thu_tu=$request->thu_tu;
-        $cauhinhtrogiup->credit=$request->credit;
-        $cauhinhtrogiup->save();
-        return redirect('ds_cauhinhtrogiup')->with('success','Đăng kí thàng công');
+        if($request->loai_tro_giup==""|| $request->thu_tu=="" || $request->credit=="" )
+        {
+            return redirect('ds_cauhinhtrogiup/them-moi-cau-hinh-tro-giup')->with('error','Vui lòng không để trống');
+        }
+        
+        else
+        {
+            $cauhinhtrogiup=CauHinhTroGiup::find($id);
+            $cauhinhtrogiup->loai_tro_giup=$request->loai_tro_giup;
+            $cauhinhtrogiup->thu_tu=$request->thu_tu;
+            $cauhinhtrogiup->credit=$request->credit;
+            $cauhinhtrogiup->save();
+            return redirect('ds_cauhinhtrogiup')->with('success','Đăng kí thàng công');
+        }
     }
 
     /**

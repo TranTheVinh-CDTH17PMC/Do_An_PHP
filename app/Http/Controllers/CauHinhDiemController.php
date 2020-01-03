@@ -93,11 +93,19 @@ class CauHinhDiemController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $cauhinhdiem=CauHinhDiemCauHoi::find($id);
-        $cauhinhdiem->thu_tu=$request->thu_tu;
-        $cauhinhdiem->diem=$request->diem;
-        $cauhinhdiem->save();
-        return redirect('ds_cauhinhdiem')->with('success','Đăng kí thàng công');
+         if($request->thu_tu==""|| $request->diem=="" )
+        {
+            return redirect('ds_cauhinhdiem/them-moi-cau-hinh-diem')->with('error','Vui lòng không để trống');
+        }
+        
+        else
+        {
+            $cauhinhdiem=CauHinhDiemCauHoi::find($id);
+            $cauhinhdiem->thu_tu=$request->thu_tu;
+            $cauhinhdiem->diem=$request->diem;
+            $cauhinhdiem->save();
+            return redirect('ds_cauhinhdiem')->with('success','Đăng kí thàng công');
+        }
     }
 
     /**

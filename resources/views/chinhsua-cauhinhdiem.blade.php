@@ -19,7 +19,14 @@
                                 
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Cập Nhật Cấu Hình</button>
                                 </form>
-
+                                 @if(session('error'))
+                                <div style="display: flex;">
+                                 @php
+                                     echo"<p style='color: #ff3600;font-style:bold; margin-top: 2em; font-size:15px; '>Vui lòng không bỏ trống</p>";
+                                 @endphp
+                                 <i style='color: #ff3600;font-style:bold; margin-top: 25px; font-size:20px; padding-left: 0.2em;' class="mdi mdi-emoticon-dead"></i>
+                                </div>
+                                @endif
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div>
