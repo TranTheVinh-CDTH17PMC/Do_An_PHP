@@ -35,3 +35,4 @@ Route::post('chi-tiet-luot-choi/them-chi-tiet-luot-choi','API\ChiTietLuotChoiCon
 Route::get('credit','API\Creditcontroller@LayDanhSach');
 Route::post('nguoi-choi/cap-nhat-credit','API\NguoiChoiController@CapNhatCreditNguoiChoi');
 Route::post('lich-su-mua-credit/them-moi','API\LichSuMuaCreditController@ThemLichSuMua');
+Route::get('chi-tiet-luot-choi/lay_chi_tiet_luot_choi','API\ChiTietLuotChoiController@LayChiTietTheoLuotChoi');
